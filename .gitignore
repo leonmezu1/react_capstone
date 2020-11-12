@@ -25,3 +25,5 @@ yarn-error.log*
 .history
 .vscode
 .prettierrc.json
+# Local Netlify folder
+.netlify

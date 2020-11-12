@@ -1,0 +1,32 @@
+.ticker-container {
+    width: 100%;
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    padding: 0.3rem 0;
+    font-family: 'PT Sans', serif;
+}
+
+.ticker-wrapper {
+    background-color: #fff;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    padding: 0.5rem;
+}
+
+.ticker-wrapper-static {
+    background-color: #fff;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    padding: 0.5rem;
+    white-space: nowrap;
+}
+
+.coin-symbol {
+    font-family: 'PT Sans';
+    font-weight: 700;
+    color: #5A85F1;
+}
+
+.coin-price {
+    color: #000;
+}
