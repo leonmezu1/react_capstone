@@ -1552,6 +1552,11 @@
     "@svgr/plugin-svgo" "^5.4.0"
     loader-utils "^2.0.0"
 
+"@sweetalert2/theme-wordpress-admin@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@sweetalert2/theme-wordpress-admin/-/theme-wordpress-admin-4.0.1.tgz#dd7a0bf73ed7588c995683757d21d9fe94050c7b"
+  integrity sha512-HBEOouDiAqF5Mbs5TFaK2948s4oEuRwa7732vEedFV8hj8vuDh3LWKVwXzLW/ewD7f8CLe09e5MEqdz6dDQOGg==
+
 "@testing-library/dom@^7.26.0":
   version "7.26.3"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.26.3.tgz#5554ee985f712d621bd676104b879f85d9a7a0ef"
@@ -11160,6 +11165,11 @@ svgo@^1.0.0, svgo@^1.2.2:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+sweetalert2@^10.10.0:
+  version "10.10.0"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-10.10.0.tgz#84e8fe1c1c756059196fd89c49790d4bfb954b93"
+  integrity sha512-TnYWt1hnPw/jkK1IqPpFT4yMZGE9VsKJApzd0dcjsrE8biykeoECpIgV8DzRVvWufit/1Z2m5Zdyo2hjBfGzoQ==
 
 symbol-observable@^1.2.0:
   version "1.2.0"

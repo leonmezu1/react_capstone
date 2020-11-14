@@ -3,6 +3,7 @@
     justify-content: space-between;
     padding-right: 2rem;
     width: 100%;
+    text-align-last: center;
 }
 
 select {
@@ -17,6 +18,11 @@ select {
     margin-right: auto;
 }
 
+option {
+    color: #000;
+    padding: 0 0.5rem;
+}
+
 .select-wrapper {
     position: relative;
 }
@@ -27,6 +33,7 @@ select {
     height: 0;
     position: absolute;
     top: 1rem;
+    right: -2rem;
     border-right: 8px solid transparent;
     border-left: 8px solid transparent;
     border-top: 8px solid #fff;
@@ -38,5 +45,11 @@ select {
         justify-content: space-between;
         padding-right: 2rem;
         width: 30rem;
+    }
+    #orderSelector {
+        width: 13rem;
+    }
+    #currencySelector {
+        width: 5rem;
     }
 }

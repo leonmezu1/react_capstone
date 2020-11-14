@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-expressions */
-/* eslint-disable no-unused-vars */
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 import { RiMenuUnfoldFill } from 'react-icons/ri';
 import { BiSearchAlt } from 'react-icons/bi';
 import { IconContext } from 'react-icons/lib';

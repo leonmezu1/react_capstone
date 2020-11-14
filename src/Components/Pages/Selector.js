@@ -24,9 +24,7 @@ const Selector = ({ handleOrderChange, handleCurrencyChange }) => (
       >
         <option value="usd">USD</option>
         <option value="eur">EUR</option>
-        <option value="cop">COP</option>
         <option value="mxn">MXN</option>
-        <option value="arg">ARG</option>
       </select>
     </div>
   </div>
