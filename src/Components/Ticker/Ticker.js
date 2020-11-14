@@ -10,7 +10,7 @@ const CoinsTicker = () => {
   return (
     <div className="ticker-container">
       <div className="ticker-wrapper-static">
-        <Ticker offset="10%" speed={5}>
+        <Ticker offset="10%" speed={6}>
           {() => (
             <p>
               {coins.map(coin => (
@@ -27,7 +27,6 @@ const CoinsTicker = () => {
             </p>
           )}
         </Ticker>
-
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import './App.css';
 import 'animate.css/animate.min.css';
 
 import Navbar from './Components/Pages/Navbar';
-import Footer from './Components/Pages/Footer';
+/* import Footer from './Components/Pages/Footer'; */
 import CryptoCoin from './Components/Pages/Crypto/CryptoCoin';
 
 const App = () => (
@@ -16,7 +16,7 @@ const App = () => (
       <Route path="/" exact component={Home} />
       <Route path="/crypto" exact component={CryptoCoin} />
     </Switch>
-    <Footer />
+    {/* <Footer /> */}
   </Router>
 );
 

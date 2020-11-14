@@ -9,7 +9,7 @@ import {
   FaLinkedin,
 } from 'react-icons/fa';
 import { MdFingerprint } from 'react-icons/md';
-import { Button } from '../Button';
+import { Button } from './Button';
 
 function Footer() {
   return (

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setGlobalCoin } from '../../../Actions';
 import { geckoCoinsMarket } from '../../../Config/Axios';
+import Spinner from '../../Spinner/Spinner';
 import Splash from '../../Splash/Splash';
 import Ticker from '../../Ticker/Ticker';
+import Selector from '../Selector';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -24,18 +26,37 @@ const Home = () => {
     dispatch(setGlobalCoin(data));
   }, []);
 
+  const handleCurrencyChange = () => {
+    // do something
+  };
+
+  const handleOrderChange = () => {
+    // do something
+  };
+
   const currentComponent = timeValue >= 1 ? (
     <Splash />
   ) : (
     <>
-      { globals ? <Ticker /> : null }
+      {globals ? (
+        <>
+          <Ticker />
+          <div className="main-content container">
+            <Selector
+              handleOrderChange={handleOrderChange}
+              handleCurrencyChange={handleCurrencyChange}
+            />
+          </div>
+        </>
+      ) : (
+        <Spinner />
+      )}
     </>
   );
 
   return (
     <>
       { currentComponent }
-      { timeValue }
     </>
   );
 };

@@ -1,86 +1,121 @@
-/* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-unused-vars */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { MdFingerprint } from 'react-icons/md';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { RiMenuUnfoldFill } from 'react-icons/ri';
+import { BiSearchAlt } from 'react-icons/bi';
 import { IconContext } from 'react-icons/lib';
-import { Button } from '../Button';
+import Search from './Search';
 import './Navbar.css';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
-  const handleClick = () => setClick(!click);
+  const [search, setSearch] = useState(false);
+  const [searchStyle, setSearchStyle] = useState('');
+  const [mobile, setMobile] = useState(true);
+
+  const ref = useRef();
+
+  const handleMenuTrigger = () => setClick(!click);
+
+  const handleSearchTrigger = () => {
+    setSearch(!search);
+    setTimeout(() => {
+      ref.current.focus();
+    }, 800);
+  };
+
   const closeMobileMenu = () => setClick(false);
-  const showButton = () => {
-    window.innerWidth <= 960 ? setButton(false) : setButton(true);
+
+  const mobileLayout = () => {
+    window.innerWidth <= 960 ? setMobile(true) : setMobile(false);
   };
 
   useEffect(() => {
-    showButton();
+    search ? setSearchStyle('active text-center') : setSearchStyle('w-0');
+  }, [search]);
+
+  useEffect(() => {
+    mobileLayout();
   }, []);
 
-  window.addEventListener('resize', showButton);
+  window.addEventListener('resize', mobileLayout);
+
   return (
     <>
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: '#fff', className: 'pointer' }}>
         <div className="navbar">
-          <div className="navbar-container container">
-            <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-              <MdFingerprint className="navbar-icon" />
-              LAVISH
-            </Link>
-
-            <div
-              className="menu-icon"
-              onClick={handleClick}
-              role="presentation"
-            >
-              {click ? <FaTimes /> : <FaBars />}
-            </div>
-            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              <li className="nav-item">
-                {' '}
-                <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                {' '}
+          {mobile ? (
+            <>
+              <div className="navbar-container-mobile">
+                <div
+                  className="menu-icon"
+                  onClick={handleMenuTrigger}
+                  role="presentation"
+                >
+                  {click ? <FaTimes clas /> : <RiMenuUnfoldFill size="30px" />}
+                </div>
                 <Link
-                  to="/services"
-                  className="nav-links"
+                  to="/"
+                  className={`navbar-title-mobile animate__animated ${
+                    search ? 'd-none' : 'animate__zoomIn animate__faster'
+                  }`}
                   onClick={closeMobileMenu}
                 >
-                  Services
+                  Cryptica
                 </Link>
-              </li>
-              <li className="nav-item">
-                {' '}
-                <Link
-                  to="/products"
-                  className="nav-links"
-                  onClick={closeMobileMenu}
+                <Search
+                  ref={ref}
+                  classes={`${searchStyle}`}
+                  formClass={`${!search ? 'd-none' : 'd-flex'}`}
+                />
+                <div className="search-trigger " role="presentation">
+                  {search ? (
+                    <FaTimes
+                      size="30px"
+                      className="animate__animated animate__fadeIn"
+                      onClick={handleSearchTrigger}
+                    />
+                  ) : (
+                    <BiSearchAlt
+                      size="30px"
+                      className="animate__animated animate__fadeIn"
+                      onClick={handleSearchTrigger}
+                    />
+                  )}
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="navbar-container-desktop container">
+                <Link to="/" className="navbar-title-desktop">
+                  Cryptica
+                </Link>
+                <Link to="/" className="navbar-about">
+                  About
+                </Link>
+                <div
+                  className={`search-container-desktop ${
+                    search ? 'wide' : null
+                  }`}
                 >
-                  Products
-                </Link>
-              </li>
-              <li className="nav-btn">
-                {button ? (
-                  <Link to="/sign-up" className="btn-link">
-                    <Button buttonStyle="btn--outline">Sign Up</Button>
-                  </Link>
-                ) : (
-                  <Link to="/sign-up" className="btn-link">
-                    <Button buttonStyle="btn--outline" buttonSize="btn--mobile">
-                      Sign Up
-                    </Button>
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </div>
+                  <Search
+                    ref={ref}
+                    classes={`${searchStyle} text-start`}
+                    formClass={`${!search ? 'd-none' : 'd-flex'}`}
+                  />
+                  <BiSearchAlt
+                    size="30px"
+                    className="animate__animated animate__fadeIn"
+                    onClick={handleSearchTrigger}
+                  />
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </IconContext.Provider>
     </>
