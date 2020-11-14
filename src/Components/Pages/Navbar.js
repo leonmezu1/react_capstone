@@ -12,8 +12,8 @@ import './Navbar.css';
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [search, setSearch] = useState(false);
-  const [searchStyle, setSearchStyle] = useState('');
   const [mobile, setMobile] = useState(true);
+  const [searchStyle, setSearchStyle] = useState('');
 
   const ref = useRef();
 
@@ -54,7 +54,7 @@ const Navbar = () => {
                   onClick={handleMenuTrigger}
                   role="presentation"
                 >
-                  {click ? <FaTimes clas /> : <RiMenuUnfoldFill size="30px" />}
+                  {click ? <FaTimes /> : <RiMenuUnfoldFill size="30px" />}
                 </div>
                 <Link
                   to="/"

@@ -19,8 +19,13 @@
 }
 
 .footer-subscription > p {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family:
+    'Trebuchet MS',
+    'Lucida Sans Unicode',
+    'Lucida Grande',
+    'Lucida Sans',
+    Arial,
+    sans-serif;
 }
 
 .footer-subscription-heading {
@@ -38,7 +43,6 @@
   border-radius: 2px;
   margin-right: 10px;
   outline: none;
-  border: none;
   font-size: 18px;
   margin-bottom: 16px;
   border: 1px solid #fff;
