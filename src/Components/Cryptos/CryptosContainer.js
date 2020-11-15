@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import WOW from 'wow.js';
 import CryptoHero from '../CryptoHero/CryptoHero';
 import CryptoTile from '../CryptoTile/CryptoTile';
 import './CryptosContainer.css';
@@ -8,7 +9,11 @@ const CryptosContainer = () => {
   const symbol = useSelector(state => state.CoinStoreState.symbol);
   const tiles = useSelector(state => state.CoinStoreState.global?.slice(1, -1));
 
-  const classes = 'crypto-column f-50-10';
+  const classes = 'crypto-column f-50-10 wow animate__animated animate__fadeInUp';
+
+  useEffect(() => {
+    new WOW().init();
+  }, []);
 
   return (
     <>
