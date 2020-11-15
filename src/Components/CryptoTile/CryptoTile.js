@@ -5,7 +5,7 @@ import './CryptoTile.css';
 const CryptoTile = ({
   imgTag, name, currentPrice, classes, symbol,
 }) => (
-  <div className={`crypto-tile ${classes}`}>
+  <div data-aos="fade-up" className={`crypto-tile ${classes}`}>
     <img src={imgTag} alt="crypto-tile" className="tile-h" />
     <span className="crypto-tile-title">{name}</span>
     <span className="crypto-tile-price">{`${symbol}${currentPrice}`}</span>
