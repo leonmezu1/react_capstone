@@ -3,16 +3,22 @@
 
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
-import { useDispatch } from 'react-redux';
-import { setGlobalCoin, setGlobalCurrency, setGlobalOrder } from '../../../Actions';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setFetching, setGlobalCoin, setGlobalCurrency, setGlobalOrder, setGlobalSymbol,
+} from '../../../Actions';
 import { geckoCoinsMarket } from '../../../Config/Axios';
 import Spinner from '../../Spinner/Spinner';
 import Splash from '../../Splash/Splash';
 import Ticker from '../../Ticker/Ticker';
 import Selector from '../Selector';
+import CryptosContainer from '../../Cryptos/CryptosContainer';
 
 const Home = () => {
   const dispatch = useDispatch();
+
+  const loading = useSelector(state => state.CoinStoreState.loading);
+
   const [globals, setGlobals] = useState({});
   const [currency, setCurrency] = useState('');
   const [order, setOrder] = useState('');
@@ -25,6 +31,7 @@ const Home = () => {
   }
 
   useEffect(async () => {
+    dispatch(setFetching(true));
     const data = await geckoCoinsMarket(currency, order);
     setGlobals(data);
     dispatch(setGlobalCoin(data));
@@ -32,7 +39,7 @@ const Home = () => {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Banner values queued!',
+        title: 'Values updated!',
         showConfirmButton: false,
         timer: 1500,
       });
@@ -53,15 +60,21 @@ const Home = () => {
     <Splash />
   ) : (
     <>
-      {globals ? (
+      {!loading ? (
         <>
-          <Ticker globals={globals} />
-          <div className="main-content container">
-            <Selector
-              handleOrderChange={handleOrderChange}
-              handleCurrencyChange={handleCurrencyChange}
-            />
-          </div>
+          { globals
+            ? (
+              <>
+                <Ticker globals={globals} />
+                <div className="main-content container">
+                  <Selector
+                    handleOrderChange={handleOrderChange}
+                    handleCurrencyChange={handleCurrencyChange}
+                  />
+                  <CryptosContainer />
+                </div>
+              </>
+            ) : null}
         </>
       ) : (
         <Spinner />

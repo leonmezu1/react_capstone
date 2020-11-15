@@ -20,6 +20,6 @@ export const geckoCoinsMarket = async (currency = 'usd', order = 'market_cap_des
   return parsedCoinsData;
 };
 
-export const geckoCoin = async id => {
-  console.log(id);
+export const geckoCoin = async () => {
+  /* console.log(id); */
 };

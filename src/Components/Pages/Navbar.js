@@ -58,7 +58,7 @@ const Navbar = () => {
                 </div>
                 <Link
                   to="/"
-                  className={`navbar-title-mobile animate__animated ${
+                  className={`navbar-title-mobile animate__animated .shadowed-text ${
                     search ? 'd-none' : 'animate__zoomIn animate__faster'
                   }`}
                   onClick={closeMobileMenu}

@@ -4,6 +4,7 @@
   padding-right: 2rem;
   width: 100%;
   text-align-last: center;
+  margin-top: 2rem;
 }
 
 select {
@@ -11,7 +12,7 @@ select {
   background-color: transparent;
   border-bottom: 2px solid #fff;
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -46,11 +47,9 @@ option {
     padding-right: 2rem;
     width: 30rem;
   }
-
   #orderSelector {
     width: 13rem;
   }
-
   #currencySelector {
     width: 5rem;
   }

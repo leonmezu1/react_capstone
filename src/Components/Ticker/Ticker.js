@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import Ticker from 'react-ticker';
 
@@ -6,26 +6,7 @@ import './Ticker.css';
 
 const CoinsTicker = () => {
   const coins = useSelector(state => state.CoinStoreState.global);
-  const currentCurrency = useSelector(state => state.CoinStoreState.currency);
-
-  let symbol;
-
-  switch (currentCurrency) {
-    case 'usd':
-      symbol = '$';
-      break;
-    case 'eur':
-      symbol = '€';
-      break;
-    case 'mxn':
-      symbol = '$ MXN ';
-      break;
-    default:
-      symbol = '$';
-      break;
-  }
-
-  useEffect(() => {}, [coins]);
+  const symbol = useSelector(state => state.CoinStoreState.symbol);
 
   return (
     <div className="ticker-container">

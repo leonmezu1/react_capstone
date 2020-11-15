@@ -1,0 +1,16 @@
+.top-currency {
+    margin-top: 2rem;
+}
+
+.top-currency-title {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 3rem;
+    margin: 1.7rem 0;
+}
+
+.tile-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
