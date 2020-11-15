@@ -11,7 +11,7 @@ const CryptoHero = () => {
       <h2 className="hero-title text-center">{heroCoin.name}</h2>
       <div className="hero-container">
         <div className="picture-container">
-          <img src={heroCoin.image} alt="CryptoImage" className="" />
+          <img src={heroCoin.image} alt="CryptoImage" />
         </div>
         <div className="info-container">
           <span className="indicator">Market cap</span>

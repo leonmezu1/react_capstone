@@ -1,46 +1,46 @@
 .hero {
-    background: rgba(188, 198, 226, 0.1);
-    border-radius: 5px;
-    padding: 1.2rem 1.5rem 2rem 1.5rem;
-    margin-bottom: 2rem;
+  background: rgba(188, 198, 226, 0.1);
+  border-radius: 5px;
+  padding: 1.2rem 1.5rem 2rem 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .hero-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .hero-container {
-    display: flex;
+  display: flex;
 }
 
 .picture-container {
-    display: flex;
-    justify-content: center;
-    width: 35%;
+  display: flex;
+  justify-content: center;
+  width: 35%;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 .info-container {
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-around;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
 }
 
 .indicator {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 .info-value {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    font-size: 1.6rem;
-    font-weight: bold;
-    line-height: 2.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 2.4rem;
 }

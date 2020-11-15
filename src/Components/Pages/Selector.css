@@ -47,9 +47,11 @@ option {
     padding-right: 2rem;
     width: 30rem;
   }
+
   #orderSelector {
     width: 13rem;
   }
+
   #currencySelector {
     width: 5rem;
   }
