@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff', className: 'pointer' }}>
-        <div className="navbar">
+        <div className="navbar sticky">
           {mobile ? (
             <>
               <div className="navbar-container-mobile">
