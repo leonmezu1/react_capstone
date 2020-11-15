@@ -1,5 +1,11 @@
 import {
-  SET_GLOBAL_COIN, FETCHING, SET_GLOBAL_CURRENCY, SET_GLOBAL_ORDER, SET_GLOBAL_SYMBOL,
+  SET_GLOBAL_COIN,
+  FETCHING,
+  SET_GLOBAL_CURRENCY,
+  SET_GLOBAL_ORDER,
+  SET_GLOBAL_SYMBOL,
+  SET_QUERY,
+  QUERY_ACTIVE,
 } from '../Types';
 
 const setCurrency = payload => ({
@@ -41,5 +47,15 @@ export const setGlobalCoin = payload => ({
 
 export const setGlobalOrder = payload => ({
   type: SET_GLOBAL_ORDER,
+  payload,
+});
+
+export const setQuery = payload => ({
+  type: SET_QUERY,
+  payload,
+});
+
+export const queryActive = payload => ({
+  type: QUERY_ACTIVE,
   payload,
 });

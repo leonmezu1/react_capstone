@@ -1,5 +1,11 @@
 import {
-  SET_GLOBAL_COIN, FETCHING, SET_GLOBAL_CURRENCY, SET_GLOBAL_ORDER, SET_GLOBAL_SYMBOL,
+  SET_GLOBAL_COIN,
+  FETCHING,
+  SET_GLOBAL_CURRENCY,
+  SET_GLOBAL_ORDER,
+  SET_GLOBAL_SYMBOL,
+  SET_QUERY,
+  QUERY_ACTIVE,
 } from '../Types';
 
 export default (state = { symbol: '$ ' }, action) => {
@@ -31,6 +37,18 @@ export default (state = { symbol: '$ ' }, action) => {
       return {
         ...state,
         symbol: action.payload,
+        loading: false,
+      };
+    case SET_QUERY:
+      return {
+        ...state,
+        currentQuery: action.payload,
+        loading: true,
+      };
+    case QUERY_ACTIVE:
+      return {
+        ...state,
+        activeQuery: action.payload,
         loading: false,
       };
     default:
