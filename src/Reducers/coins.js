@@ -6,6 +6,7 @@ import {
   SET_GLOBAL_SYMBOL,
   SET_QUERY,
   QUERY_ACTIVE,
+  QUERY_ERROR,
 } from '../Types';
 
 export default (state = { symbol: '$ ' }, action) => {
@@ -42,14 +43,17 @@ export default (state = { symbol: '$ ' }, action) => {
     case SET_QUERY:
       return {
         ...state,
-        currentQuery: action.payload,
-        loading: true,
+        queryResultObject: action.payload,
       };
     case QUERY_ACTIVE:
       return {
         ...state,
         activeQuery: action.payload,
-        loading: false,
+      };
+    case QUERY_ERROR:
+      return {
+        ...state,
+        queryError: action.payload,
       };
     default:
       return state;

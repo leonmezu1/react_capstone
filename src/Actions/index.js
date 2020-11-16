@@ -6,10 +6,16 @@ import {
   SET_GLOBAL_SYMBOL,
   SET_QUERY,
   QUERY_ACTIVE,
+  QUERY_ERROR,
 } from '../Types';
 
 const setCurrency = payload => ({
   type: SET_GLOBAL_CURRENCY,
+  payload,
+});
+
+const setError = payload => ({
+  type: QUERY_ERROR,
   payload,
 });
 
@@ -59,3 +65,8 @@ export const queryActive = payload => ({
   type: QUERY_ACTIVE,
   payload,
 });
+
+export const queryError = payload => dispatch => {
+  dispatch(setError(payload));
+  if (payload) dispatch(setQuery({}));
+};

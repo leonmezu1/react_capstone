@@ -2,8 +2,9 @@
 /* eslint-disable no-console */
 import Axios from 'axios';
 import Swal from 'sweetalert2';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { queryError, setQuery } from '../Actions';
 
 export const useCryptoPaginate = (pageNumber = 1) => {
   const currentCurrency = useSelector(state => state.CoinStoreState.currency);
@@ -41,8 +42,17 @@ export const useCryptoPaginate = (pageNumber = 1) => {
 };
 
 export const useCryptoSearch = (query, pageNumber = 1) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [result, setResult] = useState({});
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const source = Axios.CancelToken.source();
+
+    setLoading(true);
+    setError(false);
 
     const loadData = () => {
       if (query !== '') {
@@ -54,9 +64,17 @@ export const useCryptoSearch = (query, pageNumber = 1) => {
               cancelToken: source.token,
             });
 
-            console.info(res.data, source.cancel());
+            if (await res.data) {
+              dispatch(setQuery(res.data));
+              dispatch(queryError(false));
+              setResult(res.data);
+              setLoading(false);
+            }
           } catch (error) {
-            if (Axios.isCancel(error)) { console.info('cancelled'); }
+            if (!Axios.isCancel(error)) {
+              dispatch(queryError(true));
+            }
+            setError(true);
           }
         }, 500);
       }
@@ -66,7 +84,9 @@ export const useCryptoSearch = (query, pageNumber = 1) => {
     return () => source.cancel();
   }, [query, pageNumber]);
 
-  return null;
+  return {
+    loading, error, result,
+  };
 };
 
 export default useCryptoPaginate;

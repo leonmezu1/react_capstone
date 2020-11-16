@@ -5,3 +5,4 @@ export const SET_GLOBAL_COIN = 'SET_GLOBAL_COIN';
 export const SET_GLOBAL_SYMBOL = 'SET_GLOBAL_SYMBOL';
 export const SET_QUERY = 'SET_QUERY';
 export const QUERY_ACTIVE = 'QUERY_ACTIVE';
+export const QUERY_ERROR = 'QUERY_ERROR';
