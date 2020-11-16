@@ -13,7 +13,7 @@ const CryptosContainer = () => {
   }, []);
 
   const symbol = useSelector(state => state.CoinStoreState.symbol);
-  const tiles = useSelector(state => state.CoinStoreState.global?.slice(1, -1));
+  const tiles = useSelector(state => state.CoinStoreState.global?.slice(1));
 
   const classes = 'crypto-column f-50-10';
 
