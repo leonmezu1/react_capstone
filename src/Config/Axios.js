@@ -1,14 +1,6 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-export const geckoGlobal = async () => {
-  const globalData = await axios.get('https://api.coingecko.com/api/v3/global');
-
-  const parsedGlobalData = await globalData.data;
-
-  return parsedGlobalData;
-};
-
 export const geckoCoinsMarket = async (currency = 'usd', order = 'market_cap_desc', page = 1) => {
   const currencyRequest = currency === '' ? 'usd' : currency;
   const orderRequest = order === '' ? 'market_cap_desc' : order;
@@ -21,19 +13,22 @@ export const geckoCoinsMarket = async (currency = 'usd', order = 'market_cap_des
   return parsedCoinsData;
 };
 
-export const geckoCoin = async id => {
-  let cancelToken;
+export const geckoCoin = async (id, currency, order, pageNumber = 1) => {
   let parsedCoinData;
-
-  if (typeof cancelToken !== typeof undefined) cancelToken.cancel('Operation canceled due to new request.');
-
-  cancelToken = axios.CancelToken.source();
-
   try {
-    const coinData = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=true&sparkline=true`,
-      { cancelToken: cancelToken.token },
-    );
+    const coinData = await axios({
+      method: 'GET',
+      url: 'https://api.coingecko.com/api/v3/coins/markets?',
+      params: {
+        ids: id,
+        per_page: 1,
+        page: pageNumber,
+        sparkline: true,
+        price_change_percentage: '24h',
+        order,
+        vs_currency: currency,
+      },
+    });
 
     const parsedData = await coinData.data;
 

@@ -1,50 +1,65 @@
-/* eslint-disable no-useless-catch */
-/* eslint-disable no-console */
 import Axios from 'axios';
-import Swal from 'sweetalert2';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { queryError, setQuery } from '../Actions';
+/* import { geckoCoinsMarket } from './Axios'; */
 
-export const useCryptoPaginate = (pageNumber = 1) => {
-  const currentCurrency = useSelector(state => state.CoinStoreState.currency);
-  const currentOrder = useSelector(state => state.CoinsStoreState.order);
-  useEffect(async () => {
-    let cancelToken;
-    let parsedCoinData;
+export const useCryptoPaginate = (currency, order, pageNumber = 1) => {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [results, setResults] = useState([]);
+  const [hasMore, setHasMore] = useState(false);
 
-    if (typeof cancelToken !== typeof undefined) { cancelToken.cancel('Operation canceled due to new request.'); }
+  useEffect(() => {
+    setResults([]);
+  }, [currency, order]);
 
-    cancelToken = Axios.CancelToken.source();
-
-    try {
-      const coinData = await Axios.get(
-        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currentCurrency}&order=${currentOrder}&per_page=20&page=${pageNumber}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`,
-        { cancelToken: cancelToken.token },
-      );
-
-      const parsedData = await coinData.data;
-
-      parsedCoinData = parsedData;
-    } catch (e) {
-      Swal.fire({
-        position: 'top-end',
-        icon: 'error',
-        title: `Oops... ${e}`,
-        showConfirmButton: false,
-        timer: 1500,
+  useEffect(() => {
+    setLoading(true);
+    setError(false);
+    let cancel;
+    Axios({
+      method: 'GET',
+      url: 'https://api.coingecko.com/api/v3/coins/markets?',
+      params: {
+        vs_currency: currency,
+        page: pageNumber,
+        order,
+        per_page: 21,
+        sparkline: false,
+        price_change_percentage: '1h%2C24h%2C7d',
+      },
+      cancelToken: new Axios.CancelToken(c => {
+        cancel = c;
+      }),
+    })
+      .then(res => {
+        setResults(prev => [...prev, ...res.data]);
+        setHasMore(res.data.length > 0);
+        setLoading(false);
+      })
+      .catch(e => {
+        if (Axios.isCancel(e)) return;
+        setError(true);
       });
-    }
+    return () => cancel();
+  }, [currency, order, pageNumber]);
 
-    return parsedCoinData;
-  }, [pageNumber]);
-  return null;
+  return {
+    loading,
+    error,
+    results,
+    hasMore,
+  };
 };
 
 export const useCryptoSearch = (query, pageNumber = 1) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [result, setResult] = useState({});
+
+  const currency = useSelector(state => state.CoinStoreState.currency);
+  const order = useSelector(state => state.CoinStoreState.order);
 
   const dispatch = useDispatch();
 
@@ -60,7 +75,16 @@ export const useCryptoSearch = (query, pageNumber = 1) => {
           try {
             const res = await Axios({
               method: 'GET',
-              url: `https://api.coingecko.com/api/v3/coins/${query}?localization=false&tickers=false&market_data=true&sparkline=true`,
+              url: 'https://api.coingecko.com/api/v3/coins/markets?',
+              params: {
+                ids: query,
+                per_page: 1,
+                page: pageNumber,
+                sparkline: true,
+                price_change_percentage: '24h',
+                order,
+                vs_currency: currency,
+              },
               cancelToken: source.token,
             });
 
@@ -73,8 +97,8 @@ export const useCryptoSearch = (query, pageNumber = 1) => {
           } catch (error) {
             if (!Axios.isCancel(error)) {
               dispatch(queryError(true));
+              setError(true);
             }
-            setError(true);
           }
         }, 500);
       }
@@ -85,7 +109,9 @@ export const useCryptoSearch = (query, pageNumber = 1) => {
   }, [query, pageNumber]);
 
   return {
-    loading, error, result,
+    loading,
+    error,
+    result,
   };
 };
 

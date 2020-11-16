@@ -5,7 +5,7 @@ import Ticker from 'react-ticker';
 import './Ticker.css';
 
 const CoinsTicker = () => {
-  const coins = useSelector(state => state.CoinStoreState.global);
+  const coins = useSelector(state => state.CoinStoreState.global).slice(0, 19);
   const symbol = useSelector(state => state.CoinStoreState.symbol);
 
   return (

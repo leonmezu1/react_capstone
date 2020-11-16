@@ -7,6 +7,7 @@ import {
   SET_QUERY,
   QUERY_ACTIVE,
   QUERY_ERROR,
+  SET_PAGE_NUMBER,
 } from '../Types';
 
 const setCurrency = payload => ({
@@ -63,6 +64,11 @@ export const setQuery = payload => ({
 
 export const queryActive = payload => ({
   type: QUERY_ACTIVE,
+  payload,
+});
+
+export const setPageNumber = payload => ({
+  type: SET_PAGE_NUMBER,
   payload,
 });
 

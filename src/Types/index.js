@@ -4,5 +4,6 @@ export const SET_GLOBAL_ORDER = 'SET_GLOBAL_ORDER';
 export const SET_GLOBAL_COIN = 'SET_GLOBAL_COIN';
 export const SET_GLOBAL_SYMBOL = 'SET_GLOBAL_SYMBOL';
 export const SET_QUERY = 'SET_QUERY';
+export const SET_PAGE_NUMBER = 'SET_PAGE_NUMBER';
 export const QUERY_ACTIVE = 'QUERY_ACTIVE';
 export const QUERY_ERROR = 'QUERY_ERROR';

@@ -33,6 +33,7 @@
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "3.17.x",
     "sweetalert2": "^10.10.0",
+    "uuid": "^8.3.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

@@ -1,6 +1,14 @@
+.spinner-container {
+  display: flex;
+  height: calc(100vh - 6.7rem);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 .sk-cube-grid {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   margin: 100px auto;
 }
 

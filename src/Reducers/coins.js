@@ -7,9 +7,18 @@ import {
   SET_QUERY,
   QUERY_ACTIVE,
   QUERY_ERROR,
+  SET_PAGE_NUMBER,
 } from '../Types';
 
-export default (state = { symbol: '$ ' }, action) => {
+export default (
+  state = {
+    symbol: '$ ',
+    order: 'market_cap_desc',
+    currency: 'usd',
+    pageNumber: 1,
+  },
+  action,
+) => {
   switch (action.type) {
     case FETCHING:
       return {
@@ -54,6 +63,11 @@ export default (state = { symbol: '$ ' }, action) => {
       return {
         ...state,
         queryError: action.payload,
+      };
+    case SET_PAGE_NUMBER:
+      return {
+        ...state,
+        pageNumber: action.payload,
       };
     default:
       return state;

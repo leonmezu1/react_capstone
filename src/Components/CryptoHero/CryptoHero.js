@@ -14,24 +14,22 @@ const CryptoHero = () => {
           <img src={heroCoin.image} alt="CryptoImage" />
         </div>
         <div className="info-container">
-          <span className="indicator">Market cap</span>
-          <span className="info-value">{`${symbol}${heroCoin.market_cap}`}</span>
-          <span className="indicator">High - Low 24H</span>
+          <span className="indicator">Current price</span>
+          <span className="info-value">{`${symbol}${heroCoin.current_price}`}</span>
+          <span className="indicator">High 24H</span>
           <div className="info-value">
             <span className="high">
-              {`${symbol}${
-                heroCoin.high_24h ? heroCoin.high_24h : '0'
-              } `}
-
-            </span>
-            <span>&nbsp; - &nbsp;</span>
-            <span className="low">
-              {`${symbol}${
-                heroCoin.low_24h ? heroCoin.low_24h : '0'
-              }`}
-
+              {`${symbol}${heroCoin.high_24h ? heroCoin.high_24h : '0'} `}
             </span>
           </div>
+          <span className="indicator">Low 24H</span>
+          <div className="info-value">
+            <span className="low">
+              {`${symbol}${heroCoin.low_24h ? heroCoin.low_24h : '0'}`}
+            </span>
+          </div>
+          <span className="indicator">Market cap</span>
+          <span className="info-value">{`${symbol}${heroCoin.market_cap}`}</span>
         </div>
       </div>
     </div>
