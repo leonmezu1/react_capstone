@@ -11,7 +11,7 @@ const CryptoTile = (
   const data = aos ? 'fade-up' : null;
 
   return (
-    <div data-aos={data} className={`crypto-tile ${classes}`} ref={ref}>
+    <div data-aos={data} className={`${classes} crypto-tile `} ref={ref}>
       <img src={imgTag} alt="crypto-tile" className="tile-h" />
       <span className="crypto-tile-title">{name}</span>
       <span className="crypto-tile-price">{`${symbol}${currentPrice}`}</span>

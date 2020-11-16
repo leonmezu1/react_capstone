@@ -27,3 +27,10 @@
 .tile-h {
   width: 8rem;
 }
+
+@media screen and (min-width: 961px) {
+  .crypto-tile {
+    flex-direction: row;
+    justify-content:space-around;
+  }
+}

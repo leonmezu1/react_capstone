@@ -46,3 +46,12 @@ img {
   line-height: 2.4rem;
   margin-bottom: 0.5rem;
 }
+
+@media screen and (min-width: 961px) {
+  .indicator {
+    font-size: 1.6rem;
+  }
+  .info-value {
+    font-size: 1.8rem;
+  }
+}

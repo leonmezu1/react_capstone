@@ -1,3 +1,9 @@
+.currency-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .top-currency {
   margin-top: 2rem;
 }
@@ -13,4 +19,33 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 961px) {
+  .currency-box {
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    height: 80vh;
+  }
+  .top-currency {
+    flex-basis: calc(50% - 1rem);
+  }
+  .currencies-wrapper {
+    flex-basis: calc(50% - 1rem);
+    margin-top: 2rem;
+    overflow-y: scroll;
+  }
+  .tile-wrapper {
+    justify-self: flex-end;
+    margin-top: -3rem;
+  }
+  .currencies-wrapper h2 {
+    position: sticky;
+    top: 0rem;
+    margin-top: 1.5rem;
+    padding-bottom: 2rem;
+    width: 100%;
+    background: #181e2e;
+  }
 }

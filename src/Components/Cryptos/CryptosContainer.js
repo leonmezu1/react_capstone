@@ -37,13 +37,13 @@ const CryptosContainer = () => {
   const classes = 'crypto-column f-50-10';
 
   return (
-    <>
+    <div className="currency-box">
       <div className="top-currency">
         <h2 className="currency-title shadowed-text">{ activeQuery ? 'Search results' : 'Top currency' }</h2>
         { activeQuery ? (<CryptoResult />) : (<CryptoHero />) }
       </div>
       {!activeQuery && (
-        <>
+        <div className="currencies-wrapper">
           <h2 className="currency-title shadowed-text">Currencies</h2>
           <div className="tile-wrapper ">
             {tiles.map((tile, index) => {
@@ -75,9 +75,9 @@ const CryptosContainer = () => {
             })}
           </div>
           {loading && <SpinnerRect />}
-        </>
+        </div>
       )}
-    </>
+    </div>
   );
 };
 
