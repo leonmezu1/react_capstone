@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-expressions */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState, useEffect, useRef,
+} from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 import { RiMenuUnfoldFill } from 'react-icons/ri';
@@ -8,6 +11,7 @@ import { BiSearchAlt } from 'react-icons/bi';
 import { IconContext } from 'react-icons/lib';
 import Search from './Search';
 import './Navbar.css';
+import { queryActive } from '../../Actions';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -17,10 +21,13 @@ const Navbar = () => {
 
   const ref = useRef();
 
+  const dispatch = useDispatch();
+
   const handleMenuTrigger = () => setClick(!click);
 
   const handleSearchTrigger = () => {
     setSearch(!search);
+    dispatch(queryActive(!search));
     setTimeout(() => {
       ref.current.focus();
     }, 800);

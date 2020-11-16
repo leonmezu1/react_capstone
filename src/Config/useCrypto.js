@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-expressions */
 import Axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { queryError, setQuery } from '../Actions';
-/* import { geckoCoinsMarket } from './Axios'; */
+import { queryError, setFetching, setQuery } from '../Actions';
 
 export const useCryptoPaginate = (currency, order, pageNumber = 1) => {
   const [loading, setLoading] = useState(true);
@@ -60,14 +60,15 @@ export const useCryptoSearch = (query, pageNumber = 1) => {
 
   const currency = useSelector(state => state.CoinStoreState.currency);
   const order = useSelector(state => state.CoinStoreState.order);
+  const fetching = useSelector(state => state.CoinStoreState.loading);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     const source = Axios.CancelToken.source();
-
     setLoading(true);
     setError(false);
+    if (fetching === false) dispatch(setFetching(true));
 
     const loadData = () => {
       if (query !== '') {
@@ -101,6 +102,8 @@ export const useCryptoSearch = (query, pageNumber = 1) => {
             }
           }
         }, 500);
+      } else {
+        dispatch(setFetching(false));
       }
     };
 

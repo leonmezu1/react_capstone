@@ -9,7 +9,7 @@ const Search = ({ classes, formClass }, ref) => {
   useCryptoSearch(query);
 
   const onChange = e => {
-    setQuery(e.target.value);
+    setQuery(e.target.value.toLowerCase());
   };
 
   return (

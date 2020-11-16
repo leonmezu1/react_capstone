@@ -4,6 +4,7 @@ import React, {
 import { useSelector } from 'react-redux';
 import { v4 } from 'uuid';
 import { useCryptoPaginate } from '../../Config/useCrypto';
+import CryptoResult from '../CryptoHero copy/CryptoResult';
 import CryptoHero from '../CryptoHero/CryptoHero';
 import CryptoTile from '../CryptoTile/CryptoTile';
 import SpinnerRect from '../Spinner/SpinnerRect';
@@ -13,6 +14,7 @@ const CryptosContainer = () => {
   const symbol = useSelector(state => state.CoinStoreState.symbol);
   const currency = useSelector(state => state.CoinStoreState.currency);
   const order = useSelector(state => state.CoinStoreState.order);
+  const activeQuery = useSelector(state => state.CoinStoreState.activeQuery);
   const [pageNumber, setPageNumber] = useState(1);
   const observer = useRef();
 
@@ -37,40 +39,44 @@ const CryptosContainer = () => {
   return (
     <>
       <div className="top-currency">
-        <h2 className="top-currency-title shadowed-text">Top Currency</h2>
-        <CryptoHero />
+        <h2 className="currency-title shadowed-text">{ activeQuery ? 'Search results' : 'Top currency' }</h2>
+        { activeQuery ? (<CryptoResult />) : (<CryptoHero />) }
       </div>
-      <h2 className="top-currency-title shadowed-text">Currencies</h2>
-      <div className="tile-wrapper ">
-        {tiles.map((tile, index) => {
-          if (tiles.length === index + 1) {
-            currentTile = (
-              <CryptoTile
-                ref={lastTile}
-                key={v4()}
-                imgTag={tile.image}
-                name={tile.name}
-                currentPrice={tile.current_price}
-                symbol={symbol}
-                classes={classes}
-              />
-            );
-          } else {
-            currentTile = (
-              <CryptoTile
-                key={v4()}
-                imgTag={tile.image}
-                name={tile.name}
-                currentPrice={tile.current_price}
-                symbol={symbol}
-                classes={classes}
-              />
-            );
-          }
-          return currentTile;
-        })}
-      </div>
-      {loading && <SpinnerRect />}
+      {!activeQuery && (
+        <>
+          <h2 className="currency-title shadowed-text">Currencies</h2>
+          <div className="tile-wrapper ">
+            {tiles.map((tile, index) => {
+              if (tiles.length === index + 1) {
+                currentTile = (
+                  <CryptoTile
+                    ref={lastTile}
+                    key={v4()}
+                    imgTag={tile.image}
+                    name={tile.name}
+                    currentPrice={tile.current_price}
+                    symbol={symbol}
+                    classes={classes}
+                  />
+                );
+              } else {
+                currentTile = (
+                  <CryptoTile
+                    key={v4()}
+                    imgTag={tile.image}
+                    name={tile.name}
+                    currentPrice={tile.current_price}
+                    symbol={symbol}
+                    classes={classes}
+                  />
+                );
+              }
+              return currentTile;
+            })}
+          </div>
+          {loading && <SpinnerRect />}
+        </>
+      )}
     </>
   );
 };

@@ -23,7 +23,7 @@ export default (
     case FETCHING:
       return {
         ...state,
-        loading: true,
+        loading: action.payload,
       };
     case SET_GLOBAL_COIN:
       return {
@@ -53,6 +53,7 @@ export default (
       return {
         ...state,
         queryResultObject: action.payload,
+        loading: false,
       };
     case QUERY_ACTIVE:
       return {
@@ -63,6 +64,7 @@ export default (
       return {
         ...state,
         queryError: action.payload,
+        loading: false,
       };
     case SET_PAGE_NUMBER:
       return {
