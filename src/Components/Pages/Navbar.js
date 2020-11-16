@@ -113,11 +113,21 @@ const Navbar = () => {
                     classes={`${searchStyle} text-start`}
                     formClass={`${!search ? 'd-none' : 'd-flex'}`}
                   />
-                  <BiSearchAlt
-                    size="30px"
-                    className="animate__animated animate__fadeIn"
-                    onClick={handleSearchTrigger}
-                  />
+                  <div className="search-trigger " role="presentation">
+                    {search ? (
+                      <FaTimes
+                        size="30px"
+                        className="animate__animated animate__fadeIn"
+                        onClick={handleSearchTrigger}
+                      />
+                    ) : (
+                      <BiSearchAlt
+                        size="30px"
+                        className="animate__animated animate__fadeIn"
+                        onClick={handleSearchTrigger}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             </>
