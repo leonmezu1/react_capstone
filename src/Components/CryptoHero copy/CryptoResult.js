@@ -1,17 +1,25 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import propTypes from 'prop-types';
 import './CryptoResult.css';
 
-const CryptoResult = () => {
-  const heroCoin = useSelector(state => state.CoinStoreState.queryResultObject?.[0]);
+const CryptoResult = ({ redirectToCrypto }) => {
+  const heroCoin = useSelector(
+    state => state.CoinStoreState.queryResultObject?.[0],
+  );
   const symbol = useSelector(state => state.CoinStoreState.symbol);
 
   return (
-    <div className="hero">
+    <div
+      role="presentation"
+      className="hero"
+      onClick={() => redirectToCrypto(heroCoin.id)}
+      onKeyDown={e => {
+        if (e.key === 'Enter') redirectToCrypto(heroCoin.id);
+      }}
+    >
       <h2 className="hero-title text-center">
-        {heroCoin
-          ? heroCoin.name
-          : 'No results found'}
+        {heroCoin ? heroCoin.name : 'No results found'}
       </h2>
       {heroCoin && (
         <div className="hero-container">
@@ -40,6 +48,10 @@ const CryptoResult = () => {
       )}
     </div>
   );
+};
+
+CryptoResult.propTypes = {
+  redirectToCrypto: propTypes.func.isRequired,
 };
 
 export default CryptoResult;

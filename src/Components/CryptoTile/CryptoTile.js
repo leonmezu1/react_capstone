@@ -4,20 +4,24 @@ import './CryptoTile.css';
 
 const CryptoTile = (
   {
-    imgTag, name, currentPrice, classes, symbol, aos,
+    imgTag, name, currentPrice, classes, symbol, id, redirectToCrypto,
   },
   ref,
-) => {
-  const data = aos ? 'fade-up' : null;
-
-  return (
-    <div data-aos={data} className={`${classes} crypto-tile `} ref={ref}>
-      <img src={imgTag} alt="crypto-tile" className="tile-h" />
-      <span className="crypto-tile-title">{name}</span>
-      <span className="crypto-tile-price">{`${symbol}${currentPrice}`}</span>
-    </div>
-  );
-};
+) => (
+  <div
+    className={`${classes} crypto-tile `}
+    ref={ref}
+    role="presentation"
+    onClick={() => redirectToCrypto(id)}
+    onKeyDown={e => {
+      if (e.key === 'Enter') redirectToCrypto(id);
+    }}
+  >
+    <img src={imgTag} alt="crypto-tile" className="tile-h" />
+    <span className="crypto-tile-title">{name}</span>
+    <span className="crypto-tile-price">{`${symbol}${currentPrice}`}</span>
+  </div>
+);
 
 const forwardedTile = forwardRef(CryptoTile);
 
@@ -27,7 +31,8 @@ CryptoTile.propTypes = {
   currentPrice: propTypes.number.isRequired,
   symbol: propTypes.string.isRequired,
   classes: propTypes.string.isRequired,
-  aos: propTypes.bool.isRequired,
+  id: propTypes.string.isRequired,
+  redirectToCrypto: propTypes.func.isRequired,
 };
 
 export default forwardedTile;

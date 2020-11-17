@@ -1,7 +1,6 @@
-import React, {
-  useRef, useCallback, useState,
-} from 'react';
+import React, { useRef, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { v4 } from 'uuid';
 import { useCryptoPaginate } from '../../Config/useCrypto';
 import CryptoResult from '../CryptoHero copy/CryptoResult';
@@ -17,30 +16,48 @@ const CryptosContainer = () => {
   const activeQuery = useSelector(state => state.CoinStoreState.activeQuery);
   const [pageNumber, setPageNumber] = useState(1);
   const observer = useRef();
+  const history = useHistory();
 
-  const { results, loading, hasMore } = useCryptoPaginate(currency, order, pageNumber);
+  const { results, loading, hasMore } = useCryptoPaginate(
+    currency,
+    order,
+    pageNumber,
+  );
   const tiles = results.slice(1);
 
   let currentTile;
 
-  const lastTile = useCallback(node => {
-    if (loading) return;
-    if (observer.current) observer.current.disconnect();
-    observer.current = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting && hasMore) {
-        setPageNumber(pageNumber + 1);
-      }
-    });
-    if (node) observer.current.observe(node);
-  }, [loading]);
+  const redirectToCrypto = id => {
+    history.push(`crypto/${id}`);
+  };
+
+  const lastTile = useCallback(
+    node => {
+      if (loading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && hasMore) {
+          setPageNumber(pageNumber + 1);
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [loading],
+  );
 
   const classes = 'crypto-column f-50-10';
 
   return (
     <div className="currency-box">
       <div className="top-currency">
-        <h2 className="currency-title shadowed-text">{ activeQuery ? 'Search results' : 'Top currency' }</h2>
-        { activeQuery ? (<CryptoResult />) : (<CryptoHero />) }
+        <h2 className="currency-title shadowed-text">
+          {activeQuery ? 'Search results' : 'Top currency'}
+        </h2>
+        {activeQuery ? (
+          <CryptoResult redirectToCrypto={redirectToCrypto} />
+        ) : (
+          <CryptoHero redirectToCrypto={redirectToCrypto} />
+        )}
       </div>
       {!activeQuery && (
         <div className="currencies-wrapper">
@@ -57,6 +74,8 @@ const CryptosContainer = () => {
                     currentPrice={tile.current_price}
                     symbol={symbol}
                     classes={classes}
+                    id={tile.id}
+                    redirectToCrypto={redirectToCrypto}
                   />
                 );
               } else {
@@ -68,6 +87,8 @@ const CryptosContainer = () => {
                     currentPrice={tile.current_price}
                     symbol={symbol}
                     classes={classes}
+                    id={tile.id}
+                    redirectToCrypto={redirectToCrypto}
                   />
                 );
               }

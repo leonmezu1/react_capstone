@@ -6,6 +6,7 @@
   padding: 1rem;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .crypto-column {

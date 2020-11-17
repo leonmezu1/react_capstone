@@ -1,13 +1,21 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import propTypes from 'prop-types';
 import './CryptoHero.css';
 
-const CryptoHero = () => {
+const CryptoHero = ({ redirectToCrypto }) => {
   const heroCoin = useSelector(state => state.CoinStoreState.global?.[0]);
   const symbol = useSelector(state => state.CoinStoreState.symbol);
 
   return (
-    <div className="hero">
+    <div
+      role="presentation"
+      className="hero"
+      onClick={() => redirectToCrypto(heroCoin.id)}
+      onKeyDown={e => {
+        if (e.key === 'Enter') redirectToCrypto(heroCoin.id);
+      }}
+    >
       <h2 className="hero-title text-center">{heroCoin.name}</h2>
       <div className="hero-container">
         <div className="picture-container">
@@ -34,6 +42,10 @@ const CryptoHero = () => {
       </div>
     </div>
   );
+};
+
+CryptoHero.propTypes = {
+  redirectToCrypto: propTypes.func.isRequired,
 };
 
 export default CryptoHero;

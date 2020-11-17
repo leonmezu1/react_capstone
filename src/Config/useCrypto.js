@@ -34,7 +34,7 @@ export const useCryptoPaginate = (currency, order, pageNumber = 1) => {
       }),
     })
       .then(res => {
-        setResults(prev => [...prev, ...res.data]);
+        setResults(prev => [...new Set([...prev, ...res.data])]);
         setHasMore(res.data.length > 0);
         setLoading(false);
       })

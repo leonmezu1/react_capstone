@@ -18,7 +18,7 @@ const About = () => (
       <div className="about-info">
         <p>
           Cryptica is a react application that shows relevant information about
-          crypto currencies.
+          cryptocurrencies.
           <br />
           <br />
           You are welcome to contact me using any of the

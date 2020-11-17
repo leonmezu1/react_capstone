@@ -115,7 +115,9 @@ const Navbar = () => {
                     <div className="about-info">
                       <p>
                         Cryptica is a react application that shows relevant
-                        information about crypto currencies, you are welcome to
+                        information about cryptocurrencies.
+                        <br />
+                        You are welcome to
                         contact me using any of the means provided below.
                         <br />
                         <br />
