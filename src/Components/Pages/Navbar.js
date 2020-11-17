@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-expressions */
 
-import React, {
-  useState, useEffect, useRef,
-} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FaTimes } from 'react-icons/fa';
-import { RiMenuUnfoldFill } from 'react-icons/ri';
+import { FaTimes, FaLinkedinIn } from 'react-icons/fa';
+import { RiMenuUnfoldFill, RiMenuFoldFill } from 'react-icons/ri';
 import { BiSearchAlt } from 'react-icons/bi';
+import { SiTwitter, SiMinutemailer, SiGithub } from 'react-icons/si';
 import { IconContext } from 'react-icons/lib';
 import Search from './Search';
 import './Navbar.css';
@@ -61,7 +60,7 @@ const Navbar = () => {
                   onClick={handleMenuTrigger}
                   role="presentation"
                 >
-                  {click ? <FaTimes /> : <RiMenuUnfoldFill size="30px" />}
+                  <RiMenuUnfoldFill size="30px" />
                 </div>
                 <Link
                   to="/"
@@ -93,6 +92,60 @@ const Navbar = () => {
                   )}
                 </div>
               </div>
+              <div
+                className={` animate__animated slide-pannel ${
+                  click ? 'animate__fadeInLeft active' : 'animate__fadeOutLeft'
+                }`}
+              >
+                {click && (
+                  <div className="pannel-wrap">
+                    <div className="action-pane d-flex">
+                      <Link
+                        to="/"
+                        className={`navbar-title-mobile animate__animated .shadowed-text ${
+                          search ? 'd-none' : 'animate__zoomIn animate__faster'
+                        }`}
+                        onClick={closeMobileMenu}
+                      >
+                        Cryptica
+                      </Link>
+                      <RiMenuFoldFill size="30px" onClick={closeMobileMenu} />
+                    </div>
+                    <h2 className="text-center about-panel">About</h2>
+                    <div className="about-info">
+                      <p>
+                        Cryptica is a react application that shows relevant
+                        information about crypto currencies, you are welcome to
+                        contact me using any of the means provided below.
+                        <br />
+                        <br />
+                        Developed by
+                      </p>
+                      <span>
+                        <em>Leonmezu</em>
+                        {' '}
+                        <span role="img" aria-label="Laptop">
+                          💻
+                        </span>
+                      </span>
+                    </div>
+                    <div className="links-container">
+                      <a href="https://twitter.com/leonmezu">
+                        <SiTwitter size="30px" />
+                      </a>
+                      <a href="https://www.linkedin.com/in/leonardomezlob/">
+                        <FaLinkedinIn size="30px" />
+                      </a>
+                      <a href="https://github.com/leonmezu1">
+                        <SiGithub size="30px" />
+                      </a>
+                      <a href="mailto: leo7xs@gmail.com">
+                        <SiMinutemailer size="30px" />
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
             </>
           ) : (
             <>
@@ -100,7 +153,7 @@ const Navbar = () => {
                 <Link to="/" className="navbar-title-desktop">
                   Cryptica
                 </Link>
-                <Link to="/" className="navbar-about">
+                <Link to="/about" className="navbar-about">
                   About
                 </Link>
                 <div
