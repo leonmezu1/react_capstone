@@ -1,11 +1,11 @@
 .main-coin-container {
-    padding: 1.5rem;
+  padding: 1.5rem;
 }
 
 .history-container {
-    background: rgba(188, 198, 226, 0.1);
-    border-radius: 5px;
-    padding: 1.2rem;
-    margin-bottom: 2rem;
-    border-color: 1px solid #fff;
+  background: rgba(188, 198, 226, 0.1);
+  border-radius: 5px;
+  padding: 1.2rem;
+  margin-bottom: 2rem;
+  border: 1px solid #fff;
 }

@@ -28,21 +28,25 @@
     position: relative;
     height: 80vh;
   }
+
   .top-currency {
     flex-basis: calc(50% - 1rem);
   }
+
   .currencies-wrapper {
     flex-basis: calc(50% - 1rem);
     margin-top: 2rem;
     overflow-y: scroll;
   }
+
   .tile-wrapper {
     justify-self: flex-end;
     margin-top: -3rem;
   }
+
   .currencies-wrapper h2 {
     position: sticky;
-    top: 0rem;
+    top: 0;
     margin-top: 1.5rem;
     padding-bottom: 2rem;
     width: 100%;

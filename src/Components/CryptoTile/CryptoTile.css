@@ -32,6 +32,6 @@
 @media screen and (min-width: 961px) {
   .crypto-tile {
     flex-direction: row;
-    justify-content:space-around;
+    justify-content: space-around;
   }
 }
