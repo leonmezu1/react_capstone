@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaLinkedinIn } from 'react-icons/fa';
-import { SiTwitter, SiMinutemailer, SiGithub } from 'react-icons/si';
 import { IconContext } from 'react-icons/lib';
+import { SiTwitter, SiMinutemailer, SiGithub } from 'react-icons/si';
 
 import '../Navbar';
 

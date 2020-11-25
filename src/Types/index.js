@@ -7,3 +7,4 @@ export const SET_QUERY = 'SET_QUERY';
 export const SET_PAGE_NUMBER = 'SET_PAGE_NUMBER';
 export const QUERY_ACTIVE = 'QUERY_ACTIVE';
 export const QUERY_ERROR = 'QUERY_ERROR';
+export const SPLASH_LOADED = 'SPLASH_LOADED';

@@ -1,11 +1,12 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
-
 import React, { useState, useEffect } from 'react';
-import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 import {
-  setFetching, setGlobalCoin, setGlobalCurrency, setGlobalOrder, setGlobalSymbol,
+  setFetching,
+  setGlobalCoin,
+  setGlobalCurrency,
+  setGlobalOrder,
+  splashLoaded,
 } from '../../../Actions';
 import { geckoCoinsMarket } from '../../../Config/Axios';
 import Spinner from '../../Spinner/Spinner';
@@ -18,17 +19,12 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const loading = useSelector(state => state.CoinStoreState.loading);
+  const splash = useSelector(state => state.CoinStoreState.splashLoaded);
 
   const [globals, setGlobals] = useState({});
   const [currency, setCurrency] = useState('');
   const [order, setOrder] = useState('');
   const [timeValue, setTime] = useState(4);
-
-  if (timeValue > 0) {
-    setTimeout(() => {
-      setTime(timeValue - 1);
-    }, 1000);
-  }
 
   useEffect(async () => {
     dispatch(setFetching(true));
@@ -46,6 +42,16 @@ const Home = () => {
     }
   }, [currency, order]);
 
+  useEffect(() => {
+    if (timeValue > 0) {
+      setTimeout(() => {
+        setTime(timeValue - 1);
+      }, 1000);
+    } else if (timeValue === 0) {
+      dispatch(splashLoaded(true));
+    }
+  }, [timeValue]);
+
   const handleCurrencyChange = e => {
     setCurrency(e.target.value);
     dispatch(setGlobalCurrency(e.target.value));
@@ -56,25 +62,24 @@ const Home = () => {
     dispatch(setGlobalOrder(e.target.value));
   };
 
-  const currentComponent = timeValue >= 1 ? (
+  const currentComponent = !splash && timeValue >= 1 ? (
     <Splash />
   ) : (
     <>
       {!loading ? (
         <>
-          { globals
-            ? (
-              <>
-                <Ticker globals={globals} />
-                <div className="main-content container">
-                  <Selector
-                    handleOrderChange={handleOrderChange}
-                    handleCurrencyChange={handleCurrencyChange}
-                  />
-                  <CryptosContainer />
-                </div>
-              </>
-            ) : null}
+          {globals ? (
+            <>
+              <Ticker globals={globals} />
+              <div className="main-content container">
+                <Selector
+                  handleOrderChange={handleOrderChange}
+                  handleCurrencyChange={handleCurrencyChange}
+                />
+                <CryptosContainer />
+              </div>
+            </>
+          ) : null}
         </>
       ) : (
         <Spinner />
@@ -82,11 +87,7 @@ const Home = () => {
     </>
   );
 
-  return (
-    <>
-      { currentComponent }
-    </>
-  );
+  return <>{currentComponent}</>;
 };
 
 export default Home;

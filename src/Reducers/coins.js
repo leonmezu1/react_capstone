@@ -8,6 +8,7 @@ import {
   QUERY_ACTIVE,
   QUERY_ERROR,
   SET_PAGE_NUMBER,
+  SPLASH_LOADED,
 } from '../Types';
 
 export default (
@@ -70,6 +71,11 @@ export default (
       return {
         ...state,
         pageNumber: action.payload,
+      };
+    case SPLASH_LOADED:
+      return {
+        ...state,
+        splashLoaded: true,
       };
     default:
       return state;

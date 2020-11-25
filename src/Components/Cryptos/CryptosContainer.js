@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { v4 } from 'uuid';
 import { useCryptoPaginate } from '../../Config/useCrypto';
-import CryptoResult from '../CryptoHero copy/CryptoResult';
+import CryptoResult from '../CryptoHeroResult/CryptoResult';
 import CryptoHero from '../CryptoHero/CryptoHero';
 import CryptoTile from '../CryptoTile/CryptoTile';
 import SpinnerRect from '../Spinner/SpinnerRect';

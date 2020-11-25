@@ -1,7 +1,11 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-export const geckoCoinsMarket = async (currency = 'usd', order = 'market_cap_desc', page = 1) => {
+export const geckoCoinsMarket = async (
+  currency = 'usd',
+  order = 'market_cap_desc',
+  page = 1,
+) => {
   const currencyRequest = currency === '' ? 'usd' : currency;
   const orderRequest = order === '' ? 'market_cap_desc' : order;
   const coinsData = await axios.get(
@@ -23,8 +27,7 @@ export const geckoCoin = async (id, currency, order, pageNumber = 1) => {
         ids: id,
         per_page: 1,
         page: pageNumber,
-        sparkline: true,
-        price_change_percentage: '24h',
+        sparkline: false,
         order,
         vs_currency: currency,
       },
@@ -44,4 +47,52 @@ export const geckoCoin = async (id, currency, order, pageNumber = 1) => {
   }
 
   return parsedCoinData;
+};
+
+export const geckoHistory = async (cryptoId, currency) => {
+  const [day, week, month, year] = await Promise.all([
+    axios.get(
+      `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart/`,
+      {
+        params: {
+          vs_currency: currency,
+          days: '1',
+        },
+      },
+    ),
+    axios.get(
+      `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart/`,
+      {
+        params: {
+          vs_currency: currency,
+          days: '7',
+        },
+      },
+    ),
+    axios.get(
+      `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart/`,
+      {
+        params: {
+          vs_currency: currency,
+          days: '30',
+        },
+      },
+    ),
+    axios.get(
+      `https://api.coingecko.com/api/v3/coins/${cryptoId}/market_chart/`,
+      {
+        params: {
+          vs_currency: currency,
+          days: '365',
+        },
+      },
+    ),
+  ]);
+
+  return {
+    day,
+    week,
+    month,
+    year,
+  };
 };

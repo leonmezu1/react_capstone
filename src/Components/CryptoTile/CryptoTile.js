@@ -19,7 +19,12 @@ const CryptoTile = (
   >
     <img src={imgTag} alt="crypto-tile" className="tile-h" />
     <span className="crypto-tile-title">{name}</span>
-    <span className="crypto-tile-price">{`${symbol}${currentPrice}`}</span>
+    <span className="crypto-tile-price">
+      {`${symbol}${currentPrice.toFixed(
+        2,
+      )}`}
+
+    </span>
   </div>
 );
 

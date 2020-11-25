@@ -8,6 +8,7 @@ import {
   QUERY_ACTIVE,
   QUERY_ERROR,
   SET_PAGE_NUMBER,
+  SPLASH_LOADED,
 } from '../Types';
 
 const setCurrency = payload => ({
@@ -76,3 +77,8 @@ export const queryError = payload => dispatch => {
   dispatch(setError(payload));
   if (payload) dispatch(setQuery({}));
 };
+
+export const splashLoaded = payload => ({
+  type: SPLASH_LOADED,
+  payload,
+});
