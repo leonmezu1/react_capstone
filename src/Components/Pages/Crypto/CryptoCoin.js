@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { geckoCoin, geckoHistory } from '../../../Config/Axios';
-import { setFetching } from '../../../Actions';
-import Spinner from '../../Spinner/Spinner';
+import { queryActive, setFetching } from '../../../Actions';
 import CryptoHistory from '../../CryptoHistory/CryptoHistory';
+import CryptoResult from '../../CryptoHeroResult/CryptoResult';
+import Spinner from '../../Spinner/Spinner';
 import './CryptoCoin.css';
 
 const CryptoCoin = () => {
@@ -12,8 +13,11 @@ const CryptoCoin = () => {
   const currency = useSelector(state => state.CoinStoreState.currency);
   const order = useSelector(state => state.CoinStoreState.order);
   const loading = useSelector(state => state.CoinStoreState.loading);
+  const activeQuery = useSelector(state => state.CoinStoreState.activeQuery);
 
   const dispatch = useDispatch();
+
+  const history = useHistory();
 
   const [coin, setCoin] = useState({});
   const [coinData, setCoinData] = useState({});
@@ -25,6 +29,7 @@ const CryptoCoin = () => {
 
   useEffect(async () => {
     dispatch(setFetching(true));
+    dispatch(queryActive(false));
     const data = await geckoCoin(id, currency, order);
     const {
       day, week, month, year,
@@ -38,9 +43,13 @@ const CryptoCoin = () => {
       detail: data[0],
     });
     dispatch(setFetching(false));
-  }, [currency, order]);
+  }, [currency, order, id]);
 
-  return (
+  const redirectToCrypto = idCrypto => {
+    history.push(`/crypto/${idCrypto}`);
+  };
+
+  const renderMainContent = () => (
     <div className="container main-coin-container">
       <h1 className="text-center">{coin.name}</h1>
       {!loading ? (
@@ -92,6 +101,21 @@ const CryptoCoin = () => {
       </div>
     </div>
   );
+
+  const renderResultCrypto = () => (
+    <div className="container main-coin-container">
+      <div className="currency-box">
+        <div className="top-currency">
+          <h2 className="currency-title shadowed-text"> Search results </h2>
+          <CryptoResult
+            redirectToCrypto={redirectToCrypto}
+          />
+        </div>
+      </div>
+    </div>
+  );
+
+  return <>{activeQuery ? renderResultCrypto() : renderMainContent()}</>;
 };
 
 export default CryptoCoin;

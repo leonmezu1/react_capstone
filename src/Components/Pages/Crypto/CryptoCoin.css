@@ -9,3 +9,32 @@
   margin-bottom: 2rem;
   border: 1px solid #fff;
 }
+
+.currency-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.top-currency {
+  margin-top: 2rem;
+}
+
+.currency-title {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 3rem;
+  margin: 1.7rem 0;
+}
+
+@media screen and (min-width: 961px) {
+  .currency-box {
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    height: 80vh;
+  }
+  .top-currency {
+    flex-basis: calc(50% - 1rem);
+  }
+}

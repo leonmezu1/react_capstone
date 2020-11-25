@@ -28,7 +28,7 @@ const CryptosContainer = () => {
   let currentTile;
 
   const redirectToCrypto = id => {
-    history.push(`crypto/${id}`);
+    history.push(`/crypto/${id}`);
   };
 
   const lastTile = useCallback(
