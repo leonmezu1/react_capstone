@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
 import './CryptoTile.css';
+import textToBigCurrency from '../../Config/Helpers';
 
 const CryptoTile = (
   {
@@ -20,9 +21,7 @@ const CryptoTile = (
     <img src={imgTag} alt="crypto-tile" className="tile-h" />
     <span className="crypto-tile-title">{name}</span>
     <span className="crypto-tile-price">
-      {`${symbol}${currentPrice.toFixed(
-        2,
-      )}`}
+      {`${symbol}${textToBigCurrency(currentPrice)}`}
 
     </span>
   </div>

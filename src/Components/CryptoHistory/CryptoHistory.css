@@ -1,3 +1,22 @@
 .chart-container {
   height: 40vh;
 }
+
+.chart-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  width: 5rem;
+  text-transform: uppercase;
+  background-color:#181e2e;
+  color:#fff;
+}

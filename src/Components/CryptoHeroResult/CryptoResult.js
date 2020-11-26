@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import propTypes from 'prop-types';
 import './CryptoResult.css';
+import textToBigCurrency from '../../Config/Helpers';
 
 const CryptoResult = ({ redirectToCrypto }) => {
   const heroCoin = useSelector(
@@ -29,13 +30,13 @@ const CryptoResult = ({ redirectToCrypto }) => {
           <div className="info-container">
             <span className="indicator">Current price</span>
             <span className="info-value">
-              {`${symbol}${heroCoin.current_price.toFixed(2)}`}
+              {`${symbol}${textToBigCurrency(heroCoin.current_price)}`}
             </span>
             <span className="indicator">High 24H</span>
             <div className="info-value">
               <span className="high">
                 {`${symbol}${
-                  heroCoin.high_24h.toFixed(2) ? heroCoin.high_24h : '0'
+                  heroCoin.high_24h ? textToBigCurrency(heroCoin.high_24h) : '0'
                 } `}
               </span>
             </div>
@@ -43,16 +44,13 @@ const CryptoResult = ({ redirectToCrypto }) => {
             <div className="info-value">
               <span className="low">
                 {`${symbol}${
-                  heroCoin.low_24h.toFixed(2) ? heroCoin.low_24h : '0'
+                  heroCoin.low_24h ? textToBigCurrency(heroCoin.low_24h) : '0'
                 }`}
               </span>
             </div>
             <span className="indicator">Market cap</span>
             <span className="info-value">
-              {`${symbol}${heroCoin.market_cap.toFixed(
-                2,
-              )}`}
-
+              {`${symbol}${textToBigCurrency(heroCoin.market_cap)}`}
             </span>
           </div>
         </div>

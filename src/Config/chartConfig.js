@@ -17,12 +17,14 @@ export const historyOptions = {
   scales: {
     xAxes: [
       {
+        stacked: true,
         type: 'time',
         distribution: 'linear',
         gridLines: {
           color: 'rgba(0, 0, 0, 0)',
         },
         ticks: {
+          minRotation: 20,
           fontColor: '#fff',
         },
       },
@@ -33,6 +35,7 @@ export const historyOptions = {
           color: 'rgba(0, 0, 0, 0)',
         },
         ticks: {
+          beginAtZero: false,
           fontColor: '#fff',
         },
       },

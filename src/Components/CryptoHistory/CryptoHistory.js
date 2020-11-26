@@ -1,5 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useRef, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import Chartjs from 'chart.js';
@@ -9,7 +7,7 @@ import './CryptoHistory.css';
 const CryptoHistory = ({ data, currency }) => {
   const chartRef = useRef();
   const {
-    day, week, year, month, detail,
+    day, week, year, month,
   } = data;
   const [timeFormat, setTimeFormat] = useState('24h');
 
@@ -30,6 +28,7 @@ const CryptoHistory = ({ data, currency }) => {
 
   useEffect(() => {
     if (chartRef && chartRef.current) {
+      // eslint-disable-next-line no-unused-vars
       const chartInstance = new Chartjs(chartRef.current, {
         type: 'line',
         data: {
@@ -49,37 +48,12 @@ const CryptoHistory = ({ data, currency }) => {
     }
   }, [timeFormat]);
 
-  const renderPrice = () => (
-    <>
-      {detail ? (
-        <>
-          {' '}
-          <p className="my-0">
-            $
-            {detail.current_price.toFixed(2)}
-          </p>
-          <p
-            className={
-              detail.price_change_24h < 0
-                ? 'text-danger my-0'
-                : 'text-success my-0'
-            }
-          >
-            {detail.price_change_percentage_24h.toFixed(2)}
-            %
-          </p>
-        </>
-      ) : null}
-    </>
-  );
-
   return (
     <div>
-      <div>{renderPrice()}</div>
       <div className="chart-container">
         <canvas ref={chartRef} id="historyChart" />
       </div>
-      <div className="chart-button mt-1">
+      <div className="chart-button">
         <button
           type="button"
           onClick={() => setTimeFormat('24h')}
@@ -114,6 +88,7 @@ const CryptoHistory = ({ data, currency }) => {
 };
 
 CryptoHistory.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   data: propTypes.object.isRequired,
   currency: propTypes.string.isRequired,
 };
