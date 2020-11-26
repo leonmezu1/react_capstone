@@ -6,27 +6,28 @@
   cursor: pointer;
 }
 
-.hero-title {
+.heroTitle {
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
-.hero-container {
+.heroContainer {
   display: flex;
 }
 
-.picture-container {
+.pictureContainer {
   display: flex;
   justify-content: center;
   width: 45%;
 }
 
-img {
+.cryptoImg {
   object-fit: contain;
   width: 100%;
 }
 
-.info-container {
+.infoContainer {
   width: 55%;
   display: flex;
   flex-direction: column;
@@ -39,7 +40,7 @@ img {
   font-weight: bold;
 }
 
-.info-value {
+.infoValue {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
