@@ -6,8 +6,8 @@ import { queryActive, setFetching } from '../../Actions';
 import CryptoHistory from '../../Components/CryptoHistory/CryptoHistory';
 import CryptoResult from '../../Components/CryptoHeroResult/CryptoResult';
 import Spinner from '../../Components/Spinner/Spinner';
-import './CryptoCoin.css';
 import textToBigCurrency from '../../Config/Helpers';
+import './CryptoCoin.css';
 
 const CryptoCoin = () => {
   const { id } = useParams();
