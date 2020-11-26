@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import { geckoCoin, geckoHistory } from '../../../Config/Axios';
-import { queryActive, setFetching } from '../../../Actions';
-import CryptoHistory from '../../CryptoHistory/CryptoHistory';
-import CryptoResult from '../../CryptoHeroResult/CryptoResult';
-import Spinner from '../../Spinner/Spinner';
+import { geckoCoin, geckoHistory } from '../../Config/Axios';
+import { queryActive, setFetching } from '../../Actions';
+import CryptoHistory from '../../Components/CryptoHistory/CryptoHistory';
+import CryptoResult from '../../Components/CryptoHeroResult/CryptoResult';
+import Spinner from '../../Components/Spinner/Spinner';
 import './CryptoCoin.css';
-import textToBigCurrency from '../../../Config/Helpers';
+import textToBigCurrency from '../../Config/Helpers';
 
 const CryptoCoin = () => {
   const { id } = useParams();

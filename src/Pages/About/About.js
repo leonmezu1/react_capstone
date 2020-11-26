@@ -5,8 +5,8 @@ import { FaLinkedinIn } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { SiTwitter, SiMinutemailer, SiGithub } from 'react-icons/si';
 
-import '../../Navbar/Navbar';
-import CryptoResult from '../../CryptoHeroResult/CryptoResult';
+import '../../Components/Navbar/Navbar';
+import CryptoResult from '../../Components/CryptoHeroResult/CryptoResult';
 
 const About = () => {
   const activeQuery = useSelector(state => state.CoinStoreState.activeQuery);

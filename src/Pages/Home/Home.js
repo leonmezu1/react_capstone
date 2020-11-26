@@ -7,13 +7,13 @@ import {
   setGlobalCurrency,
   setGlobalOrder,
   splashLoaded,
-} from '../../../Actions';
-import { geckoCoinsMarket } from '../../../Config/Axios';
-import Spinner from '../../Spinner/Spinner';
-import Splash from '../../Splash/Splash';
-import Ticker from '../../Ticker/Ticker';
-import Selector from '../../Selector/Selector';
-import CryptosContainer from '../../Cryptos/CryptosContainer';
+} from '../../Actions';
+import { geckoCoinsMarket } from '../../Config/Axios';
+import Spinner from '../../Components/Spinner/Spinner';
+import Splash from '../../Components/Splash/Splash';
+import Ticker from '../../Components/Ticker/Ticker';
+import Selector from '../../Components/Selector/Selector';
+import CryptosContainer from '../../Components/Cryptos/CryptosContainer';
 
 const Home = () => {
   const dispatch = useDispatch();

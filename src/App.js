@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Components/Pages/Home/Home';
-import About from './Components/Pages/About/About';
+import Home from './Pages/Home/Home';
+import About from './Pages/About/About';
+import CryptoCoin from './Pages/Crypto/CryptoCoin';
 import Navbar from './Components/Navbar/Navbar';
-import CryptoCoin from './Components/Pages/Crypto/CryptoCoin';
 
 import 'animate.css/animate.min.css';
 import './App.css';
