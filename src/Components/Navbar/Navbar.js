@@ -8,7 +8,7 @@ import { RiMenuUnfoldFill, RiMenuFoldFill } from 'react-icons/ri';
 import { BiSearchAlt } from 'react-icons/bi';
 import { SiTwitter, SiMinutemailer, SiGithub } from 'react-icons/si';
 import { IconContext } from 'react-icons/lib';
-import Search from './Search';
+import Search from '../Search/Search';
 import './Navbar.css';
 import { queryActive } from '../../Actions';
 

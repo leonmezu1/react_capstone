@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Components/Pages/Home/Home';
-import Navbar from './Components/Pages/Navbar';
 import About from './Components/Pages/About/About';
+import Navbar from './Components/Navbar/Navbar';
 import CryptoCoin from './Components/Pages/Crypto/CryptoCoin';
 
 import 'animate.css/animate.min.css';

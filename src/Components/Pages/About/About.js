@@ -5,7 +5,7 @@ import { FaLinkedinIn } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { SiTwitter, SiMinutemailer, SiGithub } from 'react-icons/si';
 
-import '../Navbar';
+import '../../Navbar/Navbar';
 import CryptoResult from '../../CryptoHeroResult/CryptoResult';
 
 const About = () => {

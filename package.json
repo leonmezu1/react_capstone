@@ -13,6 +13,7 @@
     "axios": "^0.21.0",
     "babel-eslint": "10.1.x",
     "chart.js": "^2.9.4",
+    "css-modules": "^0.3.0",
     "eslint": "7.11.x",
     "eslint-config-airbnb": "18.1.x",
     "eslint-plugin-import": "2.20.x",

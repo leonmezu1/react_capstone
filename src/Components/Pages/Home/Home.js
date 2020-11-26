@@ -12,7 +12,7 @@ import { geckoCoinsMarket } from '../../../Config/Axios';
 import Spinner from '../../Spinner/Spinner';
 import Splash from '../../Splash/Splash';
 import Ticker from '../../Ticker/Ticker';
-import Selector from '../Selector';
+import Selector from '../../Selector/Selector';
 import CryptosContainer from '../../Cryptos/CryptosContainer';
 
 const Home = () => {
