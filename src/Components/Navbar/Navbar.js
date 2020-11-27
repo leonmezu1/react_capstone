@@ -39,7 +39,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    search ? setSearchStyle('active text-center') : setSearchStyle('w-0');
+    search ? setSearchStyle('active') : setSearchStyle('w-0');
   }, [search]);
 
   useEffect(() => {

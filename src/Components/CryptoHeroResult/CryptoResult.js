@@ -25,7 +25,11 @@ const CryptoResult = ({ redirectToCrypto }) => {
       {heroCoin && (
         <div className={style.heroContainer}>
           <div className={style.pictureContainer}>
-            <img src={heroCoin.image} alt="CryptoImage" />
+            <img
+              src={heroCoin.image}
+              alt="CryptoImage"
+              className={style.cryptoImg}
+            />
           </div>
           <div className={style.infoContainer}>
             <span className={style.indicator}>Current price</span>

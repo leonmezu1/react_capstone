@@ -1,7 +1,7 @@
 import React, { useState, forwardRef } from 'react';
 import propTypes from 'prop-types';
-import './Search.css';
 import { useCryptoSearch } from '../../Config/useCrypto';
+import style from './Search.module.css';
 
 const Search = ({ classes, formClass }, ref) => {
   const [query, setQuery] = useState('');
@@ -13,12 +13,12 @@ const Search = ({ classes, formClass }, ref) => {
   };
 
   return (
-    <form className={formClass}>
+    <form className={`${formClass} ${style.formStyle}`}>
       <input
         ref={ref}
         type="text"
         placeholder="Type crypto"
-        className={`search-input animate__animated ${classes} ${formClass}`}
+        className={`animate__animated ${style.searchInput} ${style[classes]} ${formClass}`}
         onChange={onChange}
       />
     </form>

@@ -31,6 +31,6 @@
   .cryptoTile {
     flex-direction: row;
     justify-content: space-around;
-    flex-basis: 1;
+    flex-basis: auto;
   }
 }
