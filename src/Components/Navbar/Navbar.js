@@ -9,8 +9,8 @@ import { BiSearchAlt } from 'react-icons/bi';
 import { SiTwitter, SiMinutemailer, SiGithub } from 'react-icons/si';
 import { IconContext } from 'react-icons/lib';
 import Search from '../Search/Search';
-import './Navbar.css';
 import { queryActive } from '../../Actions';
+import style from './Navbar.module.css';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -39,7 +39,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    search ? setSearchStyle('active text-center') : setSearchStyle('w-0');
+    search ? setSearchStyle(style.active) : setSearchStyle(style.w0);
   }, [search]);
 
   useEffect(() => {
@@ -50,11 +50,11 @@ const Navbar = () => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#fff', className: 'pointer' }}>
+      <IconContext.Provider value={{ color: '#fff', className: style.pointer }}>
         <div className="navbar sticky">
           {mobile ? (
             <>
-              <div className="navbar-container-mobile">
+              <div className={style.navbarContainerMobile}>
                 <div
                   className="menu-icon"
                   onClick={handleMenuTrigger}
@@ -64,7 +64,7 @@ const Navbar = () => {
                 </div>
                 <Link
                   to="/"
-                  className={`navbar-title-mobile animate__animated .shadowed-text ${
+                  className={`${style.navbarTitleMobile} animate__animated ${
                     search ? 'd-none' : 'animate__zoomIn animate__faster'
                   }`}
                   onClick={closeMobileMenu}
@@ -93,16 +93,18 @@ const Navbar = () => {
                 </div>
               </div>
               <div
-                className={` animate__animated slide-pannel ${
+                className={` animate__animated ${style.slidePannel} ${
                   click ? 'animate__fadeInLeft active' : 'animate__fadeOutLeft'
                 }`}
               >
                 {click && (
-                  <div className="pannel-wrap">
-                    <div className="action-pane d-flex">
+                  <div className={style.pannelWrap}>
+                    <div className={`${style.actionPane} d-flex`}>
                       <Link
                         to="/"
-                        className={`navbar-title-mobile animate__animated .shadowed-text ${
+                        className={`${
+                          style.navbarTitleMobile
+                        } animate__animated ${
                           search ? 'd-none' : 'animate__zoomIn animate__faster'
                         }`}
                         onClick={closeMobileMenu}
@@ -111,8 +113,8 @@ const Navbar = () => {
                       </Link>
                       <RiMenuFoldFill size="30px" onClick={closeMobileMenu} />
                     </div>
-                    <h2 className="text-center about-panel">About</h2>
-                    <div className="about-info">
+                    <h2 className={style.aboutPanel}>About</h2>
+                    <div className={style.aboutInfo}>
                       <p>
                         Cryptica is a react application that shows relevant
                         information about cryptocurrencies.
@@ -131,7 +133,7 @@ const Navbar = () => {
                         </span>
                       </span>
                     </div>
-                    <div className="links-container">
+                    <div className={style.linksContainer}>
                       <a href="https://twitter.com/leonmezu">
                         <SiTwitter size="30px" />
                       </a>
@@ -151,15 +153,15 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <div className="navbar-container-desktop container">
-                <Link to="/" className="navbar-title-desktop">
+              <div className={`${style.navbarContainerDesktop} container`}>
+                <Link to="/" className={style.navbarTitleDesktop}>
                   Cryptica
                 </Link>
-                <Link to="/about" className="navbar-about">
+                <Link to="/about" className={style.navbarAbout}>
                   About
                 </Link>
                 <div
-                  className={`search-container-desktop ${
+                  className={`${style.searchContainerDesktop} ${
                     search ? 'wide' : null
                   }`}
                 >

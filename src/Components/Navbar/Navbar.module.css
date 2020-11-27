@@ -7,41 +7,43 @@
   flex-direction: column;
 }
 
+.w0 {
+  width: 0;
+}
+
 .sticky {
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.navbar-container-mobile,
-.navbar-container-desktop {
+.navbarContainerMobile, .navbarContainerDesktop {
   display: flex;
   width: 100%;
   height: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 1.5rem;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.navbar-title-mobile,
-.navbar-title-desktop,
-.navbar-about {
+.navbarTitleMobile, .navbarTitleDesktop, .navbarAbout {
   color: #fff;
   text-decoration: none;
   font-size: 2.4rem;
   font-weight: 700;
 }
 
-.navbar-about {
+.navbarAbout {
   font-size: 2rem;
   margin-left: auto;
 }
 
-.navbar-title-desktop {
+.navbarTitleDesktop {
   font-size: 2.6rem;
 }
 
-.search-container-desktop {
+.searchContainerDesktop {
   display: flex;
   align-items: baseline;
   justify-content: space-around;
@@ -57,7 +59,7 @@
   width: 35%;
 }
 
-.slide-pannel {
+.slidePannel {
   position: absolute;
   background-color: #181e2e;
   top: 0;
@@ -73,7 +75,7 @@
   -o-transition: all 800ms ease;
 }
 
-.pannel-wrap {
+.pannelWrap {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -82,24 +84,26 @@
   flex: 1;
 }
 
-.slide-pannel.active {
+.slidePannel.active {
   left: 0;
   width: 95%;
+  text-align: center;
 }
 
-.action-pane {
+.actionPane {
   width: 100%;
   justify-content: space-between;
   align-items: center;
 }
 
-.about-panel {
+.aboutPanel {
   margin: 2rem auto;
   font-size: 2.2rem;
   font-weight: 900;
+  text-align: center;
 }
 
-.about-info {
+.aboutInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,20 +116,20 @@
   -o-border-radius: 0.5rem;
 }
 
-.about-info p {
+.aboutInfo p {
   font-size: 1.6rem;
 }
 
-.about-info em {
+.aboutInfo em {
   font-size: 2rem;
   font-weight: 900;
 }
 
-.about-info span {
+.aboutInfo span {
   font-size: 2.4rem;
 }
 
-.links-container {
+.linksContainer {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -134,22 +138,23 @@
   margin-bottom: 6rem;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 961px) {
-  .pannel-wrap {
+  .pannelWrap {
     width: 50%;
     margin: 5rem auto;
   }
-
-  .about-info p {
+  .aboutInfo p {
     font-size: 1.8rem;
   }
-
-  .about-info em {
+  .aboutInfo em {
     font-size: 2.2rem;
     font-weight: 900;
   }
-
-  .links-container {
+  .linksContainer {
     margin-top: 5rem;
     width: 50%;
   }
