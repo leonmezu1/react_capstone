@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { SiTwitter, SiMinutemailer, SiGithub } from 'react-icons/si';
-
-import '../../Components/Navbar/Navbar';
 import CryptoResult from '../../Components/CryptoHeroResult/CryptoResult';
+import style from '../../Components/Navbar/Navbar.module.css';
+import resultStyle from './About.module.css';
 
 const About = () => {
   const activeQuery = useSelector(state => state.CoinStoreState.activeQuery);
@@ -19,15 +19,15 @@ const About = () => {
 
   const renderMainContent = () => (
     <IconContext.Provider value={{ color: '#fff', className: 'pointer' }}>
-      <div className="pannel-wrap desktop">
-        <h2 className="text-center about-panel">
+      <div className={style.pannelWrap}>
+        <h2 className={style.aboutPanel}>
           Hi!
           {' '}
           <span role="img" aria-label="shaking hand">
             👋🏾
           </span>
         </h2>
-        <div className="about-info">
+        <div className={style.aboutInfo}>
           <p>
             Cryptica is a react application that shows relevant information
             about cryptocurrencies.
@@ -46,7 +46,7 @@ const About = () => {
             </span>
           </span>
         </div>
-        <div className="links-container">
+        <div className={style.linksContainer}>
           <a href="https://twitter.com/leonmezu">
             <SiTwitter size="30px" />
           </a>
@@ -65,10 +65,10 @@ const About = () => {
   );
 
   const renderResultCrypto = () => (
-    <div className="container main-coin-container">
-      <div className="currency-box">
-        <div className="top-currency">
-          <h2 className="currency-title shadowed-text"> Search results </h2>
+    <div className={resultStyle.container}>
+      <div className={resultStyle.currencyBox}>
+        <div className={resultStyle.topCurrency}>
+          <h2 className={resultStyle.currencyTitle}> Search results </h2>
           <CryptoResult redirectToCrypto={redirectToCrypto} />
         </div>
       </div>

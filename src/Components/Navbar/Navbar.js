@@ -55,10 +55,7 @@ const Navbar = () => {
           {mobile ? (
             <>
               <div className={style.navbarContainerMobile}>
-                <div
-                  onClick={handleMenuTrigger}
-                  role="presentation"
-                >
+                <div onClick={handleMenuTrigger} role="presentation">
                   <RiMenuUnfoldFill size="30px" />
                 </div>
                 <Link
@@ -168,7 +165,7 @@ const Navbar = () => {
                 >
                   <Search
                     ref={ref}
-                    classes={`${searchStyle} text-start`}
+                    classes={`${searchStyle}`}
                     formClass={`${!search ? 'd-none' : 'd-flex'}`}
                   />
                   <div role="presentation">

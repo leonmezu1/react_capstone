@@ -1,4 +1,4 @@
-.selector-container {
+.selectorContainer {
   display: flex;
   justify-content: space-between;
   padding-right: 2rem;
@@ -24,11 +24,11 @@ option {
   padding: 0 0.5rem;
 }
 
-.select-wrapper {
+.selectWrapper {
   position: relative;
 }
 
-.select-wrapper::after {
+.selectWrapper::after {
   content: '';
   width: 0;
   height: 0;
@@ -41,7 +41,7 @@ option {
 }
 
 @media (min-width: 961px) {
-  .selector-container {
+  .selectorContainer {
     display: flex;
     justify-content: space-between;
     padding-right: 2rem;

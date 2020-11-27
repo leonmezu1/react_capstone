@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import propTypes from 'prop-types';
-import './Selector.css';
+import style from './Selector.module.css';
 
 const Selector = ({ handleOrderChange, handleCurrencyChange }) => {
   const globalOrder = useSelector(state => state.CoinStoreState.order);
   const globalCurrency = useSelector(state => state.CoinStoreState.currency);
   return (
-    <div className="selector-container">
-      <div className="select-wrapper">
+    <div className={style.selectorContainer}>
+      <div className={style.selectWrapper}>
         <select name="order" id="orderSelector" onChange={handleOrderChange} value={globalOrder}>
           <option value="market_cap_desc">Market cap desc</option>
           <option value="market_cap_asc">Market cap asc</option>
@@ -20,7 +20,7 @@ const Selector = ({ handleOrderChange, handleCurrencyChange }) => {
           <option value="id_asc">ID asc</option>
         </select>
       </div>
-      <div className="select-wrapper">
+      <div className={style.selectWrapper}>
         <select
           name="currency"
           id="currencySelector"

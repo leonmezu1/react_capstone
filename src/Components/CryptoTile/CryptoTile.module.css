@@ -12,6 +12,7 @@
 }
 
 .cryptoTileTitle {
+  display: inline-block;
   margin: 0.7rem 0;
   font-weight: bold;
   font-size: 1.6rem;
@@ -31,6 +32,9 @@
   .cryptoTile {
     flex-direction: row;
     justify-content: space-around;
-    flex-basis: auto;
+  }
+
+  .cryptoTileTitle {
+    text-overflow: ellipsis;
   }
 }
