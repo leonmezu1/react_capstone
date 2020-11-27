@@ -92,7 +92,7 @@ const Navbar = () => {
                 </div>
               </div>
               <div
-                className={` animate__animated ${style.slidePannel} ${
+                className={`animate__animated ${style.slidePannel} ${
                   click
                     ? `animate__fadeInLeft ${style.active}`
                     : 'animate__fadeOutLeft'
