@@ -1,8 +1,10 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable no-new */
 import React, { useRef, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import Chartjs from 'chart.js';
 import { historyOptions as options } from '../../Config/chartConfig';
-import './CryptoHistory.css';
+import style from './CryptoHistory.module.css';
 
 const CryptoHistory = ({ data, currency }) => {
   const chartRef = useRef();
@@ -28,8 +30,7 @@ const CryptoHistory = ({ data, currency }) => {
 
   useEffect(() => {
     if (chartRef && chartRef.current) {
-      // eslint-disable-next-line no-unused-vars
-      const chartInstance = new Chartjs(chartRef.current, {
+      new Chartjs(chartRef.current, {
         type: 'line',
         data: {
           datasets: [
@@ -50,35 +51,35 @@ const CryptoHistory = ({ data, currency }) => {
 
   return (
     <div>
-      <div className="chart-container">
+      <div className={style.chartContainer}>
         <canvas ref={chartRef} id="historyChart" />
       </div>
-      <div className="chart-button">
+      <div className={style.chartButton}>
         <button
           type="button"
           onClick={() => setTimeFormat('24h')}
-          className="btn btn-outline-secondary btn-sm"
+          className={style.btn}
         >
           24h
         </button>
         <button
           type="button"
           onClick={() => setTimeFormat('7d')}
-          className="btn btn-outline-secondary btn-sm mx-1"
+          className={style.btn}
         >
           7d
         </button>
         <button
           type="button"
           onClick={() => setTimeFormat('30d')}
-          className="btn btn-outline-secondary btn-sm mx-1"
+          className={style.btn}
         >
           30d
         </button>
         <button
           type="button"
           onClick={() => setTimeFormat('1y')}
-          className="btn btn-outline-secondary btn-sm"
+          className={style.btn}
         >
           1y
         </button>
@@ -88,8 +89,7 @@ const CryptoHistory = ({ data, currency }) => {
 };
 
 CryptoHistory.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  data: propTypes.object.isRequired,
+  data: propTypes.any.isRequired,
   currency: propTypes.string.isRequired,
 };
 

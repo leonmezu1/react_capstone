@@ -1,13 +1,13 @@
-.chart-container {
+.chartContainer {
   height: 40vh;
 }
 
-.chart-button {
+.chartButton {
   display: flex;
   justify-content: space-between;
 }
 
-button {
+.btn {
   margin-top: 1rem;
   padding: 0.2rem;
   border-radius: 0.5rem;
