@@ -49,14 +49,6 @@ body {
   margin: auto;
 }
 
-.uppercase {
-  text-transform: uppercase;
-}
-
-.spaced {
-  padding: 0 0.2rem 0 1.5rem;
-}
-
 .w-0 {
   width: 0;
 }

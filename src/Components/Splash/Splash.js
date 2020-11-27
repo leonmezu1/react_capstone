@@ -1,11 +1,11 @@
 import React from 'react';
-import './Splash.css';
+import style from './Splash.module.css';
 
 const img = './images/CoinGecko.png';
 
 const Splash = () => (
   <div className="splash-wrapper animate__animated animate__fadeOut animate__delay-3s ">
-    <div className="splash-screen">
+    <div className={style.splashScreen}>
       <img
         src={img}
         alt="Coingecko"

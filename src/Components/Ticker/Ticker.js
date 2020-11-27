@@ -1,26 +1,25 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Ticker from 'react-ticker';
-
-import './Ticker.css';
+import style from './Ticker.module.css';
 
 const CoinsTicker = () => {
   const coins = useSelector(state => state.CoinStoreState.global).slice(0, 19);
   const symbol = useSelector(state => state.CoinStoreState.symbol);
 
   return (
-    <div className="ticker-container">
-      <div className="ticker-wrapper-static">
+    <div className={style.tickerContainer}>
+      <div className={style.tickerWrapperStatic}>
         <Ticker offset="10%" speed={6}>
           {() => (
             <p>
               {coins.map(coin => (
                 <span key={coin.symbol}>
-                  <span className="coin-symbol uppercase spaced">
+                  <span className={style.coinSymbol}>
                     {`${coin.symbol}: `}
                     {' '}
                   </span>
-                  <span className="coin-price uppercase">
+                  <span className={style.coinPrice}>
                     {` ${symbol}${coin.current_price}  `}
                   </span>
                 </span>

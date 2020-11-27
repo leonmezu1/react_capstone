@@ -7,7 +7,7 @@ import CryptoHistory from '../../Components/CryptoHistory/CryptoHistory';
 import CryptoResult from '../../Components/CryptoHeroResult/CryptoResult';
 import Spinner from '../../Components/Spinner/Spinner';
 import textToBigCurrency from '../../Config/Helpers';
-import './CryptoCoin.css';
+import style from './CryptoCoin.module.css';
 
 const CryptoCoin = () => {
   const { id } = useParams();
@@ -54,23 +54,23 @@ const CryptoCoin = () => {
   const renderPrice = () => (
     <>
       {coin ? (
-        <div className="gridder-container">
-          <div className="gridder">
+        <div className={style.gridderContainer}>
+          <div className={style.gridder}>
             <div className="d-flex">
-              <span className="coin-data-category">Current price: &nbsp;</span>
+              <span className={style.coinDataCategory}>Current price: &nbsp;</span>
               <span>{`${symbol}${textToBigCurrency(coin.current_price)}`}</span>
             </div>
           </div>
-          <div className="gridder">
+          <div className={style.gridder}>
             <div className="d-flex">
-              <span className="coin-data-category">
+              <span className={style.coinDataCategory}>
                 Percentage change: &nbsp;
               </span>
               <span
                 className={
                   coin.price_change_24h < 0
-                    ? 'text-danger price'
-                    : 'text-success price'
+                    ? 'text-danger'
+                    : 'text-success'
                 }
               >
                 {` ${coin.price_change_percentage_24h?.toFixed(2)}%`}
@@ -83,64 +83,55 @@ const CryptoCoin = () => {
   );
 
   const renderInfo = () => (
-    <div className="gridder-container">
-      <div className="gridder">
+    <div className={style.gridderContainer}>
+      <div className={style.gridder}>
         <div className="d-flex">
-          <span className="coin-data-category">High (24h)</span>
-          <span className="coin-data">
+          <span className={style.coinDataCategory}>High (24h)</span>
+          <span className={style.coinData}>
             {`${symbol}${textToBigCurrency(coin.high_24h)}`}
           </span>
         </div>
       </div>
-      <div className="gridder">
+      <div className={style.gridder}>
         <div className="d-flex">
-          <span className="coin-data-category">Low (24h)</span>
-          <span className="coin-data">
+          <span className={style.coinDataCategory}>Low (24h)</span>
+          <span className={style.coinData}>
             {`${symbol}${textToBigCurrency(coin.low_24h)}`}
           </span>
         </div>
       </div>
-      <div className="gridder">
+      <div className={style.gridder}>
         <div className="d-flex">
-          <span className="coin-data-category">Market Cap</span>
-          <span className="coin-data">
-            {`${symbol}${textToBigCurrency(
-              coin.market_cap,
-            )}`}
-
+          <span className={style.coinDataCategory}>Market Cap</span>
+          <span className={style.coinData}>
+            {`${symbol}${textToBigCurrency(coin.market_cap)}`}
           </span>
         </div>
       </div>
-      <div className="gridder">
+      <div className={style.gridder}>
         <div className="d-flex">
-          <span className="coin-data-category">Total Supply</span>
-          <span className="coin-data">
+          <span className={style.coinDataCategory}>Total Supply</span>
+          <span className={style.coinData}>
             {`${symbol}${
               coin.total_supply ? textToBigCurrency(coin.total_supply) : 0
             }`}
           </span>
         </div>
       </div>
-      <div className="gridder">
+      <div className={style.gridder}>
         <div className="d-flex">
-          <span className="coin-data-category">Volume (24H)</span>
-          <span className="coin-data">
-            {`${symbol}${textToBigCurrency(
-              coin.total_volume,
-            )}`}
-
+          <span className={style.coinDataCategory}>Volume (24H)</span>
+          <span className={style.coinData}>
+            {`${symbol}${textToBigCurrency(coin.total_volume)}`}
           </span>
         </div>
       </div>
 
-      <div className="gridder">
+      <div className={style.gridder}>
         <div className="d-flex">
-          <span className="coin-data-category">Circulating Supply</span>
-          <span className="coin-data">
-            {`${symbol}${textToBigCurrency(
-              coin.circulating_supply,
-            )}`}
-
+          <span className={style.coinDataCategory}>Circulating Supply</span>
+          <span className={style.coinData}>
+            {`${symbol}${textToBigCurrency(coin.circulating_supply)}`}
           </span>
         </div>
       </div>
@@ -148,11 +139,11 @@ const CryptoCoin = () => {
   );
 
   const renderMainContent = () => (
-    <div className="container main-coin-container">
-      <span className="text-left big">{coin.name}</span>
+    <div className={`container ${style.mainCoinContainer}`}>
+      <span className={`text-left ${style.big}`}>{coin.name}</span>
       {!loading ? (
         <>
-          <div className="history-container">
+          <div className={style.historyContainer}>
             <CryptoHistory data={coinData} currency={currency} />
           </div>
           {renderPrice()}
@@ -165,10 +156,10 @@ const CryptoCoin = () => {
   );
 
   const renderResultCrypto = () => (
-    <div className="container main-coin-container">
-      <div className="currency-box">
-        <div className="top-currency">
-          <h2 className="currency-title shadowed-text"> Search results </h2>
+    <div className={`container ${style.mainCoinContainer}`}>
+      <div className={style.currencyBox}>
+        <div className={style.topCurrency}>
+          <h2 className={style.currencyTitle}> Search results </h2>
           <CryptoResult redirectToCrypto={redirectToCrypto} />
         </div>
       </div>
