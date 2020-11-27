@@ -1,16 +1,16 @@
 import React, { forwardRef } from 'react';
 import propTypes from 'prop-types';
-import './CryptoTile.css';
 import textToBigCurrency from '../../Config/Helpers';
+import style from './CryptoTile.module.css';
 
 const CryptoTile = (
   {
-    imgTag, name, currentPrice, classes, symbol, id, redirectToCrypto,
+    imgTag, name, currentPrice, symbol, id, redirectToCrypto,
   },
   ref,
 ) => (
   <div
-    className={`${classes} crypto-tile `}
+    className={style.cryptoTile}
     ref={ref}
     role="presentation"
     onClick={() => redirectToCrypto(id)}
@@ -18,11 +18,10 @@ const CryptoTile = (
       if (e.key === 'Enter') redirectToCrypto(id);
     }}
   >
-    <img src={imgTag} alt="crypto-tile" className="tile-h" />
-    <span className="crypto-tile-title">{name}</span>
-    <span className="crypto-tile-price">
+    <img src={imgTag} className={style.tileH} alt="crypto-tile" />
+    <span className={style.cryptoTileTitle}>{name}</span>
+    <span className={style.cryptoTilePrice}>
       {`${symbol}${textToBigCurrency(currentPrice)}`}
-
     </span>
   </div>
 );
@@ -34,7 +33,6 @@ CryptoTile.propTypes = {
   name: propTypes.string.isRequired,
   currentPrice: propTypes.number.isRequired,
   symbol: propTypes.string.isRequired,
-  classes: propTypes.string.isRequired,
   id: propTypes.string.isRequired,
   redirectToCrypto: propTypes.func.isRequired,
 };
