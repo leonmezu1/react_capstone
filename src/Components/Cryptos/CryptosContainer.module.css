@@ -1,50 +1,51 @@
-.currency-box {
+.currencyBox {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.top-currency {
+.topCurrency {
   margin-top: 2rem;
 }
 
-.currency-title {
+.currencyTitle {
   font-size: 2rem;
   font-weight: bold;
   line-height: 3rem;
   margin: 1.7rem 0;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.tile-wrapper {
+.tileWrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 @media screen and (min-width: 961px) {
-  .currency-box {
+  .currencyBox {
     flex-direction: row;
     justify-content: space-between;
     position: relative;
     height: 80vh;
   }
 
-  .top-currency {
+  .topCurrency {
     flex-basis: calc(50% - 1rem);
   }
 
-  .currencies-wrapper {
+  .currenciesWrapper {
     flex-basis: calc(50% - 1rem);
     margin-top: 2rem;
     overflow-y: scroll;
   }
 
-  .tile-wrapper {
+  .tileWrapper {
     justify-self: flex-end;
     margin-top: -3rem;
   }
 
-  .currencies-wrapper h2 {
+  .currenciesWrapper h2 {
     position: sticky;
     top: 0;
     margin-top: 1.5rem;

@@ -11,6 +11,7 @@
 
 .crypto-column {
   flex-direction: column;
+  flex-basis: calc(50% - 1.5rem);
 }
 
 .crypto-tile-title {

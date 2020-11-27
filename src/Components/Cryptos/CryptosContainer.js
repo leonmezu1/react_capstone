@@ -7,7 +7,7 @@ import CryptoResult from '../CryptoHeroResult/CryptoResult';
 import CryptoHero from '../CryptoHero/CryptoHero';
 import CryptoTile from '../CryptoTile/CryptoTile';
 import SpinnerRect from '../Spinner/SpinnerRect';
-import './CryptosContainer.css';
+import style from './CryptosContainer.module.css';
 
 const CryptosContainer = () => {
   const symbol = useSelector(state => state.CoinStoreState.symbol);
@@ -45,12 +45,10 @@ const CryptosContainer = () => {
     [loading],
   );
 
-  const classes = 'crypto-column f-50-10';
-
   return (
-    <div className="currency-box">
-      <div className="top-currency">
-        <h2 className="currency-title shadowed-text">
+    <div className={style.currencyBox}>
+      <div className={style.topCurrency}>
+        <h2 className={style.currencyTitle}>
           {activeQuery ? 'Search results' : 'Top currency'}
         </h2>
         {activeQuery ? (
@@ -60,9 +58,9 @@ const CryptosContainer = () => {
         )}
       </div>
       {!activeQuery && (
-        <div className="currencies-wrapper">
-          <h2 className="currency-title shadowed-text">Currencies</h2>
-          <div className="tile-wrapper ">
+        <div className={style.currenciesWrapper}>
+          <h2 className={style.currencyTitle}>Currencies</h2>
+          <div className={style.tileWrapper}>
             {tiles.map((tile, index) => {
               if (tiles.length === index + 1) {
                 currentTile = (
@@ -73,7 +71,6 @@ const CryptosContainer = () => {
                     name={tile.name}
                     currentPrice={tile.current_price}
                     symbol={symbol}
-                    classes={classes}
                     id={tile.id}
                     redirectToCrypto={redirectToCrypto}
                   />
@@ -86,7 +83,6 @@ const CryptosContainer = () => {
                     name={tile.name}
                     currentPrice={tile.current_price}
                     symbol={symbol}
-                    classes={classes}
                     id={tile.id}
                     redirectToCrypto={redirectToCrypto}
                   />

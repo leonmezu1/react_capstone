@@ -105,10 +105,6 @@ body {
   mix-blend-mode: luminosity;
 }
 
-.f-50-10 {
-  flex-basis: calc(50% - 1.5rem);
-}
-
 .w-50r {
   width: 5rem;
 }
