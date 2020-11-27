@@ -2,7 +2,8 @@
   padding: 1.5rem;
 }
 
-.historyContainer, .gridder {
+.historyContainer,
+.gridder {
   background: rgba(188, 198, 226, 0.1);
   border-radius: 5px;
   padding: 1.2rem;
@@ -44,7 +45,7 @@
   justify-content: space-between;
 }
 
-.gridder>* {
+.gridder > * {
   width: 100%;
   flex-grow: 1;
   font-size: 1.6rem;
@@ -71,6 +72,7 @@
     position: relative;
     height: 80vh;
   }
+
   .topCurrency {
     flex-basis: calc(50% - 1rem);
   }

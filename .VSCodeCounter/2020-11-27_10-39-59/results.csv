@@ -1,0 +1,32 @@
+"filename", "language", "Babel JavaScript", "YAML", "jsonc", "comment", "blank", "total"
+"/home/leonmezu/projects/react_capstone/.eslintrc.json", "jsonc", 0, 0, 27, 0, 1, 28
+"/home/leonmezu/projects/react_capstone/.github/workflows/linters.yml", "YAML", 0, 33, 0, 0, 4, 37
+"/home/leonmezu/projects/react_capstone/src/Actions/index.js", "Babel JavaScript", 72, 0, 0, 0, 13, 85
+"/home/leonmezu/projects/react_capstone/src/App.js", "Babel JavaScript", 19, 0, 0, 0, 4, 23
+"/home/leonmezu/projects/react_capstone/src/Components/CryptoHero/CryptoHero.js", "Babel JavaScript", 56, 0, 0, 0, 5, 61
+"/home/leonmezu/projects/react_capstone/src/Components/CryptoHeroResult/CryptoResult.js", "Babel JavaScript", 66, 0, 0, 0, 5, 71
+"/home/leonmezu/projects/react_capstone/src/Components/CryptoHistory/CryptoHistory.js", "Babel JavaScript", 88, 0, 0, 2, 7, 97
+"/home/leonmezu/projects/react_capstone/src/Components/CryptoTile/CryptoTile.js", "Babel JavaScript", 36, 0, 0, 0, 5, 41
+"/home/leonmezu/projects/react_capstone/src/Components/Cryptos/CryptosContainer.js", "Babel JavaScript", 94, 0, 0, 0, 8, 102
+"/home/leonmezu/projects/react_capstone/src/Components/Navbar/Navbar.js", "Babel JavaScript", 182, 0, 0, 1, 14, 197
+"/home/leonmezu/projects/react_capstone/src/Components/Search/Search.js", "Babel JavaScript", 28, 0, 0, 0, 8, 36
+"/home/leonmezu/projects/react_capstone/src/Components/Selector/Selector.js", "Babel JavaScript", 41, 0, 0, 0, 5, 46
+"/home/leonmezu/projects/react_capstone/src/Components/Spinner/Spinner.js", "Babel JavaScript", 18, 0, 0, 0, 3, 21
+"/home/leonmezu/projects/react_capstone/src/Components/Spinner/SpinnerRect.js", "Babel JavaScript", 6, 0, 0, 0, 3, 9
+"/home/leonmezu/projects/react_capstone/src/Components/Splash/Splash.js", "Babel JavaScript", 20, 0, 0, 0, 4, 24
+"/home/leonmezu/projects/react_capstone/src/Components/Ticker/Ticker.js", "Babel JavaScript", 32, 0, 0, 0, 4, 36
+"/home/leonmezu/projects/react_capstone/src/Config/Axios.js", "Babel JavaScript", 89, 0, 0, 0, 10, 99
+"/home/leonmezu/projects/react_capstone/src/Config/Helpers.js", "Babel JavaScript", 11, 0, 0, 0, 2, 13
+"/home/leonmezu/projects/react_capstone/src/Config/chartConfig.js", "Babel JavaScript", 45, 0, 0, 0, 2, 47
+"/home/leonmezu/projects/react_capstone/src/Config/useCrypto.js", "Babel JavaScript", 107, 0, 0, 1, 14, 122
+"/home/leonmezu/projects/react_capstone/src/Pages/About/About.js", "Babel JavaScript", 74, 0, 0, 0, 8, 82
+"/home/leonmezu/projects/react_capstone/src/Pages/Crypto/CryptoCoin.js", "Babel JavaScript", 158, 0, 0, 0, 15, 173
+"/home/leonmezu/projects/react_capstone/src/Pages/Home/Home.js", "Babel JavaScript", 83, 0, 0, 0, 11, 94
+"/home/leonmezu/projects/react_capstone/src/Reducers/coins.js", "Babel JavaScript", 82, 0, 0, 0, 2, 84
+"/home/leonmezu/projects/react_capstone/src/Reducers/index.js", "Babel JavaScript", 5, 0, 0, 0, 2, 7
+"/home/leonmezu/projects/react_capstone/src/Types/index.js", "Babel JavaScript", 10, 0, 0, 0, 1, 11
+"/home/leonmezu/projects/react_capstone/src/index.js", "Babel JavaScript", 15, 0, 0, 0, 3, 18
+"/home/leonmezu/projects/react_capstone/src/reportWebVitals.js", "Babel JavaScript", 12, 0, 0, 0, 2, 14
+"/home/leonmezu/projects/react_capstone/src/setupTests.js", "Babel JavaScript", 1, 0, 0, 0, 1, 2
+"/home/leonmezu/projects/react_capstone/src/store.js", "Babel JavaScript", 14, 0, 0, 1, 3, 18
+"Total", "-", 1464, 33, 27, 5, 169, 1698
