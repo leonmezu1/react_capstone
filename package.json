@@ -4,6 +4,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.12.9",
     "@sweetalert2/theme-wordpress-admin": "^4.0.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -17,7 +18,7 @@
     "css-modules": "^0.3.0",
     "eslint": "7.11.x",
     "eslint-config-airbnb": "18.1.x",
-    "eslint-plugin-import": "2.20.x",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "6.2.x",
     "eslint-plugin-react": "7.20.x",
     "eslint-plugin-react-hooks": "2.5.x",
