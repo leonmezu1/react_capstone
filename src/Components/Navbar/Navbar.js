@@ -8,8 +8,8 @@ import { RiMenuUnfoldFill, RiMenuFoldFill } from 'react-icons/ri';
 import { BiSearchAlt } from 'react-icons/bi';
 import { SiTwitter, SiMinutemailer, SiGithub } from 'react-icons/si';
 import { IconContext } from 'react-icons/lib';
-import Search from '../Search/Search';
 import { queryActive } from '../../Actions';
+import Search from '../Search/Search';
 import style from './Navbar.module.css';
 
 const Navbar = () => {
@@ -39,7 +39,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    search ? setSearchStyle(style.active) : setSearchStyle(style.w0);
+    search ? setSearchStyle('active text-center') : setSearchStyle('w-0');
   }, [search]);
 
   useEffect(() => {
@@ -51,12 +51,11 @@ const Navbar = () => {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff', className: style.pointer }}>
-        <div className="navbar sticky">
+        <div className={style.navbar}>
           {mobile ? (
             <>
               <div className={style.navbarContainerMobile}>
                 <div
-                  className="menu-icon"
                   onClick={handleMenuTrigger}
                   role="presentation"
                 >
@@ -76,7 +75,7 @@ const Navbar = () => {
                   classes={`${searchStyle}`}
                   formClass={`${!search ? 'd-none' : 'd-flex'}`}
                 />
-                <div className="search-trigger " role="presentation">
+                <div role="presentation">
                   {search ? (
                     <FaTimes
                       size="30px"
@@ -94,7 +93,9 @@ const Navbar = () => {
               </div>
               <div
                 className={` animate__animated ${style.slidePannel} ${
-                  click ? 'animate__fadeInLeft active' : 'animate__fadeOutLeft'
+                  click
+                    ? `animate__fadeInLeft ${style.active}`
+                    : 'animate__fadeOutLeft'
                 }`}
               >
                 {click && (
@@ -162,7 +163,7 @@ const Navbar = () => {
                 </Link>
                 <div
                   className={`${style.searchContainerDesktop} ${
-                    search ? 'wide' : null
+                    search ? style.wide : ''
                   }`}
                 >
                   <Search
@@ -170,7 +171,7 @@ const Navbar = () => {
                     classes={`${searchStyle} text-start`}
                     formClass={`${!search ? 'd-none' : 'd-flex'}`}
                   />
-                  <div className="search-trigger " role="presentation">
+                  <div role="presentation">
                     {search ? (
                       <FaTimes
                         size="30px"
