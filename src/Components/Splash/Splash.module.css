@@ -1,0 +1,26 @@
+.splashScreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #181e2e;
+  font-size: 1.8rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.splashScreen img {
+  width: 60%;
+  mix-blend-mode: luminosity;
+  margin-bottom: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .splashScreen img {
+    width: 20%;
+  }
+}

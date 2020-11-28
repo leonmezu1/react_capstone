@@ -1,38 +1,118 @@
-.App {
+@import '~@sweetalert2/theme-wordpress-admin/wordpress-admin.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: #181e2e transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #181e2e;
+  border-radius: 20px;
+  border: 3px transparent;
+}
+
+html {
+  font-size: 62.5%;
+  font-weight: 400;
+  position: relative;
+}
+
+body {
+  background: #181e2e;
+  color: #fff;
+}
+
+.shadowed-text {
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.bolded {
+  font-weight: 700;
+}
+
+.container {
+  max-width: 150rem;
+  margin: auto;
+}
+
+.w-0 {
+  width: 0;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.text-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text-left {
+  text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.text-right {
+  text-align: right;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.text-start {
+  text-align: justify;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.main-content {
+  padding: 1.5rem;
+}
+
+.luminosity {
+  mix-blend-mode: luminosity;
+}
+
+.w-50r {
+  width: 5rem;
+}
+
+.f-wrap {
+  flex-wrap: nowrap;
+}
+
+.flex-column {
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.text-danger {
+  color: #dc3545;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text-success {
+  color: #28a745;
 }

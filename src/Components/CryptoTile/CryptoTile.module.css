@@ -1,0 +1,40 @@
+.cryptoTile {
+  background: rgba(188, 198, 226, 0.1);
+  border-radius: 5px;
+  display: flex;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-direction: column;
+  flex-basis: calc(50% - 1.5rem);
+}
+
+.cryptoTileTitle {
+  display: inline-block;
+  margin: 0.7rem 0;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.cryptoTilePrice {
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+}
+
+.tileH {
+  width: 8rem;
+}
+
+@media screen and (min-width: 961px) {
+  .cryptoTile {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .cryptoTileTitle {
+    text-overflow: ellipsis;
+  }
+}

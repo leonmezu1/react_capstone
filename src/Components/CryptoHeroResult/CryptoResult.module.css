@@ -1,0 +1,50 @@
+.hero {
+  background: rgba(188, 198, 226, 0.1);
+  border-radius: 5px;
+  padding: 1.2rem 1.5rem 2rem 1.5rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.heroTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.heroContainer {
+  display: flex;
+}
+
+.pictureContainer {
+  display: flex;
+  justify-content: center;
+  width: 45%;
+}
+
+.cryptoImg {
+  object-fit: contain;
+  width: 100%;
+}
+
+.infoContainer {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.indicator {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.infoValue {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  margin-bottom: 0.5rem;
+}

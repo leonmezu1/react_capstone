@@ -1,0 +1,58 @@
+.selectorContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2rem;
+  width: 100%;
+  text-align-last: center;
+  margin-top: 2rem;
+}
+
+select {
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  font-size: 1.6rem;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  margin-right: auto;
+}
+
+option {
+  color: #000;
+  padding: 0 0.5rem;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper::after {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 1rem;
+  right: -2rem;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-top: 8px solid #fff;
+}
+
+@media (min-width: 961px) {
+  .selectorContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2rem;
+    width: 30rem;
+  }
+
+  #orderSelector {
+    width: 13rem;
+  }
+
+  #currencySelector {
+    width: 5rem;
+  }
+}

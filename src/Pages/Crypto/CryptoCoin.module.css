@@ -1,0 +1,79 @@
+.mainCoinContainer {
+  padding: 1.5rem;
+}
+
+.historyContainer,
+.gridder {
+  background: rgba(188, 198, 226, 0.1);
+  border-radius: 5px;
+  padding: 1.2rem;
+  margin: 2rem 0;
+  border: 1px solid #fff;
+}
+
+.currencyBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.topCurrency {
+  margin-top: 2rem;
+}
+
+.currencyTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 3rem;
+  margin: 1.7rem 0;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.gridderContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.gridder {
+  padding: 2rem 1.5rem;
+  flex-basis: 100%;
+  margin: 1rem 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gridder > * {
+  width: 100%;
+  flex-grow: 1;
+  font-size: 1.6rem;
+  justify-content: space-between;
+}
+
+.coinDataCategory {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.coinData {
+  font-size: 1.6rem;
+}
+
+.big {
+  font-size: 2.5rem;
+}
+
+@media screen and (min-width: 961px) {
+  .currencyBox {
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    height: 80vh;
+  }
+
+  .topCurrency {
+    flex-basis: calc(50% - 1rem);
+  }
+}
